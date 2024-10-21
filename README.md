@@ -1,5 +1,5 @@
-#Actividad Práctica Entregable N° 4 - Grupal
-##Tipo de Datos Abstractos (TAD)
+# Actividad Práctica Entregable N° 4 - Grupal
+## Tipo de Datos Abstractos (TAD)
 Objetivos:
 ● Realizar una implementaciòn del TAD TCOLA a partir de una especificación dada, haciendo uso de las estrategias de RP y las estructuras de datos trabajadas en el curso
 ● Resolver un problema USANDO el TAD TCOLA
