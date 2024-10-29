@@ -1,6 +1,10 @@
-//TAD TCOLA
-//tipo exportado COLA
-interface
+#ifndef COLA_H_INCLUDE
+#define COLA_H_INCLUDE
+
+///Estructura planteada:
+typedef struct tNodo *NODO;
+typedef struct tCola *COLA;
+
 /* Crea una cola vacía. */
 COLA crear();
 /* Indica si la cola C está vacía, en cuyo caso retorna 1, 0 en otro caso. */
@@ -22,3 +26,5 @@ void copiar(COLA *C1, COLA C2);
 posX es una posición valida en C1, comprendida entre 1 y la cantidad de elementos
 de la cola C1*/
 void llevarAlFrente(COLA *C1, int posX);
+
+#endif
