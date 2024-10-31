@@ -20,7 +20,8 @@ struct tCola{
 };
 /// Modulo/s auxiliar/es (Desconozco si se pueden usar modulos auxiliares corrijanme si estoy mal chicos)
 void asignar(NODO *C,int dato){
-	/// Asigna memoria a un nodo y setea el sgte en NULL
+	/// Asigna memoria a un nodo e ingresa el dato en el campo "dato" de la estructura tNodo, además setea el siguiente de
+	/// del nodo en NULL (Utilizado para encolar al final, modificar en caso de querer usarlo para otro modulo)
 	(*C) = malloc(sizeof(struct tNodo));
 	(*C)->sgte = NULL;
 	(*C)->dato = dato;
@@ -31,9 +32,7 @@ void asignar(NODO *C,int dato){
 /* Agrega el elemento dato al final de la cola C. */
 void encolar(COLA *C, int dato){
 	if(vacia(*C) == 0){
-		if((*C)->ultimo->sgte == NULL){
-			asignar((*C)->ultimo->sgte,dato);
-		}
+		asignar((*C)->ultimo->sgte,dato);
 	}
 }
 	
