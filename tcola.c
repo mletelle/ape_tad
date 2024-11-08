@@ -19,6 +19,7 @@ struct tCola{
 	NODO inicio;
 };
 /// Modulo/s auxiliar/es (Desconozco si se pueden usar modulos auxiliares corrijanme si estoy mal chicos)
+//Si, existe algo llamado funciones privadas segun bibliografia, es decir, funciones ocultas al usuario pero que se usan en el tad, lindas para mdularizar
 void asignar(NODO *C,int dato){
 	/// Asigna memoria a un nodo e ingresa el dato en el campo "dato" de la estructura tNodo, además setea el siguiente de
 	/// del nodo en NULL (Utilizado para encolar al final, modificar en caso de querer usarlo para otro modulo)
@@ -29,6 +30,12 @@ void asignar(NODO *C,int dato){
 	
 /// Implementacion de 3 funcionalidades provistas por el TAD
 
+ /*Creaunacolavacía.*/
+//Inicializa la cola en "vacia", y qElementos en 0.
+COLA crear(){
+	//especificar
+	return colaVacia;
+}
 /* Agrega el elemento dato al final de la cola C. */
 void encolar(COLA *C, int dato){
 	if(vacia(*C) == 0){
@@ -44,3 +51,5 @@ int vacia(COLA C){
 	}
 	return cVacia;
 }
+
+
