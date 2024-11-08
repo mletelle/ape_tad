@@ -18,8 +18,9 @@ struct tCola{
 	NODO ultimo;
 	NODO inicio;
 };
-/// Modulo/s auxiliar/es (Desconozco si se pueden usar modulos auxiliares corrijanme si estoy mal chicos)
+/// Modulo/s auxiliar/es
 //Si, existe algo llamado funciones privadas segun bibliografia, es decir, funciones ocultas al usuario pero que se usan en el tad, lindas para mdularizar
+//Se pueden usar todos los modulos auxiliares que consideremos necesarios para implementar las funciones del TAD
 void asignar(NODO *C,int dato){
 	/// Asigna memoria a un nodo e ingresa el dato en el campo "dato" de la estructura tNodo, además setea el siguiente de
 	/// del nodo en NULL (Utilizado para encolar al final, modificar en caso de querer usarlo para otro modulo)
