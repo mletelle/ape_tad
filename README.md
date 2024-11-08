@@ -1,4 +1,4 @@
-# Actividad Práctica Entregable N° 4 - Grupal
+<em> # Actividad Práctica Entregable N° 4 - Grupal </em>Actividad Práctica Entregable N° 4 - Grupal
 
 ## Tipo de Datos Abstractos (TAD)
 
@@ -6,6 +6,8 @@
 - Implementar el TAD **TCOLA** a partir de una especificación dada, utilizando las estrategias de **RP** y las estructuras de datos trabajadas en el curso.
 - Resolver un problema **USANDO** el TAD TCOLA.
 - Reflexionar sobre la forma de trabajo que se propone a través del uso de TADs, en comparación a cómo se trabajó hasta este tema.
+
+
 
 ### Preguntas y Tareas
 
