@@ -1,4 +1,4 @@
-<em> # Actividad Práctica Entregable N° 4 - Grupal </em>
+# Actividad Práctica Entregable N° 4 - Grupal 
 
 ## Tipo de Datos Abstractos (TAD)
 
@@ -13,7 +13,6 @@
 
 1. **Estructura de Datos**
    - ¿Qué estructura de datos propondrían para que el tiempo de ejecución de los algoritmos `longitud`, `encolar` y `desencolar` sea O(1)?
-     - **Propuesta**: Utilizar una **lista enlazada** con punteros al inicio y al final, junto con un entero `qElementos`.
 
 2. **Funcionalidades del TAD**
    - Implementar, usando la estructura de datos propuesta, al menos **3 funcionalidades** provistas por el TAD.
