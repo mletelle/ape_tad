@@ -3,21 +3,19 @@
 #include <string.h>
 #include "tcola.h"
 //TNodo va a ser los nodos contenidos en la "lista"
-struct tNodo{
-	int dato;
-	/// Ponele que en una "lista" de 30, un nodo X está en la posicion 3
-	/// con ese criterio determinamos la posicion de cada nodo en funcion de
-	/// qElementos.
-	int posNodo;
-	NODO *sgte;
-};
+typedef struct tNodo {
+    int dato;
+//quito posnodo segun visto correccion de parcial
+    struct tNodo *sgte;  // Puntero al siguiente nodo
+} tNodo;
+
 //TCola va a ser la "lista"
-struct tCola{
-	int qElementos;
-	/// Los ultimos dos serian un puntero a estructura tNodo
-	NODO ultimo;
-	NODO inicio;
-};
+typedef struct tCola {
+//resuelto como el parcial
+    int qElementos;       // Cantidad de elementos en la cola
+    tNodo *primerNodo;        // Puntero al primer nodo (frente de la cola)
+    tNodo *ultimoNodo;        // Puntero al último nodo (final de la cola)
+} tCola;
 /// Modulo/s auxiliar/es
 //Si, existe algo llamado funciones privadas segun bibliografia, es decir, funciones ocultas al usuario pero que se usan en el tad, lindas para mdularizar
 //Se pueden usar todos los modulos auxiliares que consideremos necesarios para implementar las funciones del TAD
