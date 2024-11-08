@@ -1,4 +1,4 @@
-<em> # Actividad Práctica Entregable N° 4 - Grupal </em>Actividad Práctica Entregable N° 4 - Grupal
+<em> # Actividad Práctica Entregable N° 4 - Grupal </em>
 
 ## Tipo de Datos Abstractos (TAD)
 
