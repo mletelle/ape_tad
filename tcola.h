@@ -2,8 +2,8 @@
 #define COLA_H_INCLUDE
 
 ///Estructura planteada:
-typedef struct tNodo *NODO;
-typedef struct tCola *COLA;
+//typedef struct tNodo *NODO;
+typedef struct tCola *COLA;// importa solo el Tipo exportado? o tmb el tipo de nodo? el user interactua solo con el TIPO EXPORTADO?
 
 /* Crea una cola vacía. */
 COLA crear();
