@@ -31,8 +31,10 @@
 - Sznajdleder, P. A. (2021). Algorítmos a fondo con aplicaciones en C y Java. Capítulo 9.
 
 ## Sugerencias:
-Para links [stackedit](https://stackedit.io/app#))
+Para links [stackedit](https://stackedit.io/app#)
+
 Para **negrita**
+Para ****negrita****
 >Para quote
 
 |                |Tabla|Columna                         |
