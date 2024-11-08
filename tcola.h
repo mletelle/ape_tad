@@ -4,6 +4,8 @@
 ///Estructura planteada:
 //typedef struct tNodo *NODO;
 typedef struct tCola *COLA;// importa solo el Tipo exportado? o tmb el tipo de nodo? el user interactua solo con el TIPO EXPORTADO?
+                           // Solo importa el tipo exportado y no cómo lo implementamos, osea el usuario solo sabe que la estructura es tCola y nada más, las cosas entorno a la implementacion como...
+                           //...*NODO está mal porque es parte de como el programador del TAD implementa la estructura
 
 /* Crea una cola vacía. */
 COLA crear();
