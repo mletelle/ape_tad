@@ -75,7 +75,7 @@ int existe(COLA *C, int x){
 	int encontrado = 0;
 	int i = 1;
 	tNodo aux = C->primerNodo;
-	while(aux != NULL && flag != 1){
+	while(aux != NULL && encontrado != 1){
 		if(aux->dato == dato){
 		   encontrado = 1;
 		   retorno = i;
