@@ -1,6 +1,17 @@
 # Actividad Práctica Entregable N° 2  
 
 ## Tipo de Datos Abstractos (TAD)
+Es una descripción matemática de un objeto no definido nativamente por el lenguaje, que se caracteriza por las operaciones que se pueden realizar sobre él. 
+Aunque los problemas básicos pueden resolverse con estructuras simples como variables y arreglos, otros problemas complejos, requieren modelar estructuras que escapan a las predefinidas en el lenguaje. Estas estructuras ofrecen ventajas importantes:
+- Ahorro de tiempo en programación, ya que no es necesario desarrollar cada estructura desde cero porque este se importa de otro archivo ya desarrollado.
+- Se separa el código en dos capas diferentes
+-- Una parte es la especificación que escribe el programador
+-- Otra la interfaz que puede utilizar el usuario.
+- Estimaciones de tamaño y tiempo de ejecución para sus operaciones.
+- Las funciones asociadas a cada estructura son relativamente independientes del lenguaje o la implementación en particular.
+
+##TAD COLA
+El TAD Cola es una estructura de datos tipo FIFO (First In, First Out), donde el primer elemento en entrar es el primero en salir, como en un consultorio médico. Frecuentemente, se utiliza como un almacenamiento temporal que conserva el orden de llegada de los elementos hasta que puedan ser procesados. Al igual que la pila, la cola es un subtipo de lista.
 ```mermaid
 flowchart  TD
 n1["TAD TCOLA"]  -->  n2["tipo exportado COLA"]
