@@ -68,6 +68,19 @@ int vacia(COLA C){
 USANDO el TAD TCOLA, diseña e implementa una función llamada existe que reciba una cola C y un valor entero X, 
 y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar -1.
 */
+int existe(COLA *C, int x){
+	int retorno = -1;
+	int flag = 0;
+	tNodo aux = (*C)->primerNodo;
+	while(aux != NULL && flag != 1){
+		if(aux->dato = dato){
+		   flag = 1;
+		   retorno = aux->posNodo;
+		}
+	 	aux = aux->sgte;
+	}
+	return retorno;
+}
 
 
 /// Modulo/s auxiliar/es
