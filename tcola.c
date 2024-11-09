@@ -72,12 +72,12 @@ y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que e
 */
 int existe(COLA *C, int x){
 	int retorno = -1;
-	int flag = 0;
+	int encontrado = 0;
 	int i = 1;
-	tNodo aux = (*C)->primerNodo;
+	tNodo aux = C->primerNodo;
 	while(aux != NULL && flag != 1){
-		if(aux->dato = dato){
-		   flag = 1;
+		if(aux->dato == dato){
+		   encontrado = 1;
 		   retorno = i;
 		}
 		i++;
