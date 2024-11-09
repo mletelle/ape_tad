@@ -1,7 +1,12 @@
-# Actividad Práctica Entregable N° 4 - Grupal 
+# Actividad Práctica Entregable N° 2  
 
 ## Tipo de Datos Abstractos (TAD)
-
+```mermaid
+flowchart  TD
+n1["TAD TCOLA"]  -->  n2["tipo exportado COLA"]
+n2  -->  n3["interface"]
+n3  -->  n4["crear"]  &  n5["vacia"]  &  n6["encolar"]  &  n7["desencolar"]  &  n8["verPrimero"]  &  n9["longitud"]  &  n10["copiar"]  &  n11["llevarAlFrente"]
+```
 ## Objetivos
 - Implementar el TAD **TCOLA** a partir de una especificación dada, utilizando las estrategias de **RP** y las estructuras de datos trabajadas en el curso.
 - Resolver un problema **USANDO** el TAD TCOLA.
@@ -10,7 +15,24 @@
 ## Consignas
 
 #### a) ¿Qué estructura de datos propondrían para que el tiempo de ejecución de los algoritmos `longitud`, `encolar` y `desencolar` sea O(1)?
+```mermaid
+flowchart  TD
 
+subgraph  Nodo["Nodo"]
+E["sgte"]
+C["tNodo"]
+n2["dato"]
+n3["tNodo"]
+end
+
+A["tCola"]  -- Contiene -->  B["qElementos: int"]
+A  -- Apunta a -->  D["ultimoNodo: tNodo*"]  &  n1["primerNodo: tNodo*"]
+C  -- Apunta a -->  E
+D  -->  C
+n1  -->  C
+C  -->  n2
+E  -- Apunta a -->  n3
+```
 #### b) Se pide que implementes, usando la estructura de datos propuesta en el inciso a), al menos 3 de las funcionalidades provistas por el TAD.
 >Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
 
