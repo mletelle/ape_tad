@@ -64,6 +64,11 @@ int vacia(COLA C){
 	}
 	return cVacia;
 }
+/*
+USANDO el TAD TCOLA, diseña e implementa una función llamada existe que reciba una cola C y un valor entero X, 
+y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar -1.
+*/
+
 
 /// Modulo/s auxiliar/es
 //Si, existe algo llamado funciones privadas segun bibliografia, es decir, funciones ocultas al usuario pero que se usan en el tad, lindas para mdularizar
