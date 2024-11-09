@@ -6,9 +6,6 @@
 //TNodo va a modelar los nodos contenidos en la "lista"
 typedef struct tNodo {
     int dato;
-//quito posnodo segun visto correccion de parcial
-/// Pero según la correccion del parcial, al que le corrigieron no puso posNodo como una posicion individual de cada nodo
-/// puso la cantidad de nodos total en cada nodo, es decir, puso la cantidad de elementos en su totalidad en cada nodo
     struct tNodo *sgte;  // Puntero al siguiente nodo
 } tNodo;
 
@@ -38,6 +35,11 @@ void encolar(COLA *C, int dato){
 /* Agrega el elemento dato al final de la cola C. */
 /// Suponiendo que entra *ultimoNodo
 	if(vacia((*C)) == 0){
+	/// si se combinaran quedaria:
+	// (*C)->sgte = malloc(sizeof(struct tNodo))
+	// (*C)->sgte->sgte = NULL;
+	// (*C)->dato = dato;
+	
 	   asignar((*C)->sgte,dato)
 	   
 	
@@ -71,12 +73,14 @@ y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que e
 int existe(COLA *C, int x){
 	int retorno = -1;
 	int flag = 0;
+	int i = 1;
 	tNodo aux = (*C)->primerNodo;
 	while(aux != NULL && flag != 1){
 		if(aux->dato = dato){
 		   flag = 1;
-		   retorno = aux->posNodo;
+		   retorno = i;
 		}
+		i++;
 	 	aux = aux->sgte;
 	}
 	return retorno;
