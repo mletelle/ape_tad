@@ -10,7 +10,7 @@ Aunque los problemas básicos pueden resolverse con estructuras simples como var
 - Estimaciones de tamaño y tiempo de ejecución para sus operaciones.
 - Las funciones asociadas a cada estructura son relativamente independientes del lenguaje o la implementación en particular.
 
-##TAD COLA
+## TAD COLA
 El TAD Cola es una estructura de datos tipo FIFO (First In, First Out), donde el primer elemento en entrar es el primero en salir, como en un consultorio médico. Frecuentemente, se utiliza como un almacenamiento temporal que conserva el orden de llegada de los elementos hasta que puedan ser procesados. Al igual que la pila, la cola es un subtipo de lista.
 ```mermaid
 flowchart  TD
