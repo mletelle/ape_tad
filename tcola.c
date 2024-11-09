@@ -7,6 +7,8 @@
 typedef struct tNodo {
     int dato;
 //quito posnodo segun visto correccion de parcial
+/// Pero según la correccion del parcial, al que le corrigieron no puso posNodo como una posicion individual de cada nodo
+/// puso la cantidad de nodos total en cada nodo, es decir, puso la cantidad de elementos en su totalidad en cada nodo
     struct tNodo *sgte;  // Puntero al siguiente nodo
 } tNodo;
 
@@ -24,6 +26,7 @@ typedef struct tCola {
 COLA crear() {
     /* Crea una cola vacía. Inicializa la estructura de cola con inicio y último apuntando a NULL,
        y establece qElementos en 0 */
+/// Deberia asignarle memoria con malloc al puntero que sea crea?
     COLA colaVacia;
     colaVacia.inicio = NULL;// No hay nodos en la cola
     colaVacia.ultimo = NULL;
@@ -33,11 +36,17 @@ COLA crear() {
 
 void encolar(COLA *C, int dato){
 /* Agrega el elemento dato al final de la cola C. */
-	if(vacia(*C) == 0){
-		asignar((*C)->ultimo->sgte,dato);
+/// Suponiendo que entra *ultimoNodo
+	if(vacia((*C)) == 0){
+	   asignar((*C)->sgte,dato)
+	   
+	
 	}
 }
 //REVISAR LA NECESIDAD DE ASIGNAR TENIENDO ENCOLAR,SE COMBINAN?
+/// Considero que deberia mantenerse, porque si fuera todo parte de un mismo quedaría (*C)->sgte->sgte para setear el siguiente del nuevo nodo, y según "las buenas practicas de programacion"
+/// no deberia haber un puntero que haga "sgte->sgte", cito: "(...)chicos no hagan(no me gusta) que la lista sea el siguiente del siguiente del siguiente..."
+
 void asignar(NODO *C,int dato){
 // Asigna memoria a un nodo e ingresa el dato en el campo "dato" de la estructura tNodo, además setea el siguiente de
 // del nodo en NULL (Utilizado para encolar al final, modificar en caso de querer usarlo para otro modulo)
@@ -45,6 +54,7 @@ void asignar(NODO *C,int dato){
 	(*C)->sgte = NULL;
 	(*C)->dato = dato;
 }
+
 	
 int vacia(COLA C){
 /* Indica si la cola C está vacía, en cuyo caso retorna 1, 0 en otro caso. */
