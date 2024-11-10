@@ -42,6 +42,7 @@ int vacia(COLA C){
 }
 
 void asignar(tNodo **nodo, int dato){
+//Auxiliar de encolar
 // Asigna memoria a un nodo e ingresa el dato en el campo "dato" de la estructura tNodo, además setea el siguiente de
 // del nodo en NULL (Utilizado para encolar al final)
 	*nodo = malloc(sizeof(tNodo));
@@ -63,7 +64,7 @@ void encolar(COLA *C, int dato) {
         C->ultimoNodo->sgte = nuevoNodo;
         C->ultimoNodo = nuevoNodo;
     }    
-    C->qElementos++; // Incrementa la cantidad de elementos en la cola
+	C->qElementos++; // Incrementa la cantidad de elementos en la cola
 }
 
 /* Desencola el primer elemento de la cola C y lo retorna en el parámetro desencolado.
@@ -83,37 +84,28 @@ void desencolar(COLA *C, int* desencolado) {
     }
 }
 
+/* Recupera el valor del dato que está al frente de la cola, sin desencolarlo.
+Pre-condición: cola no vacía*/
+int verPrimero(COLA C) {
+	int retorno = -1; //esto nunca debe retornarse según la pre-condicion
+	if (C.primerNodo != NULL) {
+	retorno = C.primerNodo->dato;// asigna el dato del primer nodo al retorno
+	}
+	return retorno;
+}
+
 /* Retorna recursivamente la cantidad de elementos de la cola C. */
 int longitud(tCola *C) {//recibe el Tipo Exportado
     return C->qElementos;//retorna lo almacenado en el campo qelementos(0(1))
 }
 
-/*USANDO el TAD TCOLA, diseña e implementa una función llamada existe que reciba una cola C y un valor entero X, 
-y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar -1.
-*/
-int existe(COLA *C, int x){
-/// Avanza sobre la lista sumando un valor I que determina la posicion del valor buscado 'x', si se encontró la variable encontrado cambia a verdadero y retorno obtiene la "posicion" dónde
-/// quedó I, si no se encontró el valor de "retorno" nunca cambia y la funcion retorna -1. Para encontrar el valor se recorre la lista de inicio a fin para encontrar el valor 'x', si se encontró 
-/// termina de buscar.
-	int retorno = -1;
-	int encontrado = 0;
-	int i = 1;
-	tNodo aux = C->primerNodo;
-	while(aux != NULL && encontrado != 1){
-		if(aux->dato == dato){
-		   encontrado = 1;
-		   retorno = i;
-		}
-
-		i++;
-	 	aux = aux->sgte;
+/* Copia el contenido de C2 a C1. */
+void copiar(COLA *C1, COLA C2) {
+	COLA nuevaCola = crear(); //crea una nueva cola para almacenar la copia
+	tNodo* aux = C2.primerNodo;//declara un nodo auxiliar y le asigna el primer nodo de la cola
+	while (aux != NULL) { //iterar sobre los elementos de C2 y encolarlos en la nuevacola
+		encolar(&nuevaCola, aux->dato);
+		aux= aux->sgte;
 	}
-	return retorno;
+	*C1=nuevaCola;//asignar la nuevacola a C1
 }
-
-
-/// Modulo/s auxiliar/es
-//Si, existe algo llamado funciones privadas segun bibliografia, es decir, funciones ocultas al usuario pero que se usan en el tad, lindas para mdularizar
-//Se pueden usar todos los modulos auxiliares que consideremos necesarios para implementar las funciones del TAD
-
-
