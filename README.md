@@ -48,22 +48,26 @@ E  -- Apunta a -->  n3
 
 Encolar:
 ```mermaid
-flowchart  TD
-n1["encolar"]  -- envia nuevoNodo y el dato por referencia -->  n2["asignar"]
-n2  -- pregunta si esta vacia -->  n3["vacia"]
-n3  -- devuelve estado -->  n2
+flowchart TD
+    n1["encolar"] -- envia nuevoNodo y el dato por referencia --> n2["asignar"]
+    n2 -- pregunta si esta vacia --> n3["vacia"]
+    n3 -- devuelve estado --> n2
+    n4["Untitled Node"] -- recibe cola y dato --> n1
+    n4@{ shape: anchor}
 ```
 Desencolar:
 ```mermaid
 flowchart TD
-    A["desencolar"] --> n1["esta vacia?"]
+    A["desencolar"] --> n1["esta vacia?"] & n9["retorna por referencia el dato del elemento desencolado"]
     n1 -- no --> n2["apuntar primerElemento al segundo"]
     n2 --> n5["aislar y eliminar"]
     n5 --> n6["reducir cantidad de elementos"]
     n1 -- si --> n7["Untitled Node"]
+    n8["Untitled Node"] -- recibe COLA --> A
 
     n1@{ shape: diam}
     n7@{ shape: f-circ}
+    n8@{ shape: anchor}
 ```
 
 Longitud:
