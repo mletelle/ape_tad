@@ -44,6 +44,28 @@ C  -->  n2
 E  -- Apunta a -->  n3
 ```
 #### b) Se pide que implementes, usando la estructura de datos propuesta en el inciso a), al menos 3 de las funcionalidades provistas por el TAD.
+
+
+Encolar:
+```mermaid
+flowchart  TD
+n1["encolar"]  -- envia nuevoNodo y el dato por referencia -->  n2["asignar"]
+n2  -- pregunta si esta vacia -->  n3["vacia"]
+n3  -- devuelve estado -->  n2
+```
+Desencolar:
+```mermaid
+flowchart TD
+    A["desencolar"] --> n1["esta vacia?"]
+    n1 -- no --> n2["apuntar primerElemento al segundo"]
+    n2 --> n5["aislar y eliminar"]
+    n5 --> n6["reducir cantidad de elementos"]
+    n1 -- si --> n7["Untitled Node"]
+
+    n1@{ shape: diam}
+    n7@{ shape: f-circ}
+```
+
 >Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
 
 #### c) Si la especificación de la interfaz del `TAD TCOLA` no cuenta con la funcionalidad `longitud`, ¿podrían determinar la cantidad de elementos de la cola usando el resto de las funcionalidades? Diseñe la solución propuesta, asumiendo el rol de usuario del TAD.
