@@ -45,10 +45,19 @@ C  -->  n2
 E  -- Apunta a -->  n3
 ```
 #### b) Se pide que implementes, usando la estructura de datos propuesta en el inciso a), al menos 3 de las funcionalidades provistas por el TAD.
+> Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
+Crear:
 
+```mermaid
 
+```
+Vacia:
+
+```mermaid
+
+```
 Encolar:
-> Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c#L52)
+
 ```mermaid
 flowchart TD
     n1["encolar"] -- envia nuevoNodo y el dato por referencia --> n2["asignar"]
@@ -58,7 +67,7 @@ flowchart TD
     n4@{ shape: anchor}
 ```
 Desencolar:
-> Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c#L72)
+
 ```mermaid
 flowchart TD
     A["desencolar"] --> n1["esta vacia?"] & n9["retorna por referencia el dato del elemento desencolado"]
@@ -72,17 +81,29 @@ flowchart TD
     n7@{ shape: f-circ}
     n8@{ shape: anchor}
 ```
+Ver primero:
 
+```mermaid
+
+```
 Longitud:
->Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c#L87)
 ```mermaid
 flowchart  TD
 A["longitud"]  -->  B["retornar cantidad elementos"]
 n1["Untitled Node"]  -- recibe la COLA -->  A
 n1@{ shape: anchor}
    ```
+Copiar:
 
+```mermaid
 
+```
+Llevar al frente:
+
+```mermaid
+
+```
+> Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
 
 #### c) Si la especificación de la interfaz del `TAD TCOLA` no cuenta con la funcionalidad `longitud`, ¿podrían determinar la cantidad de elementos de la cola usando el resto de las funcionalidades? Diseñe la solución propuesta, asumiendo el rol de usuario del TAD.
 
