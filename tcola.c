@@ -93,7 +93,8 @@ y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que e
 */
 int existe(COLA *C, int x){
 /// Avanza sobre la lista sumando un valor I que determina la posicion del valor buscado 'x', si se encontró la variable encontrado cambia a verdadero y retorno obtiene la "posicion" dónde
-/// quedó I, si no se encontró el valor de "retorno" nunca cambia y la funcion retorna -1. Para encontrar el valor se recorre la lista de inicio a fin
+/// quedó I, si no se encontró el valor de "retorno" nunca cambia y la funcion retorna -1. Para encontrar el valor se recorre la lista de inicio a fin para encontrar el valor 'x', si se encontró 
+/// termina de buscar.
 	int retorno = -1;
 	int encontrado = 0;
 	int i = 1;
