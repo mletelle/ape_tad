@@ -78,6 +78,23 @@ int longitud(tCola *C) {//recibe el Tipo Exportado
     return longitudNodos(C->primerNodo);//invoca con primer nodo
 }
 
+/* Desencola el primer elemento de la cola C y lo retorna en el parámetro desencolado.
+La cantidad de elementos de la cola C disminuye en 1.
+Pre-condición: cola no vacía*/
+void desencolar(COLA *C, int* desencolado) {
+    if (C->primerNodo != NULL) {
+        tNodo *temp = C->primerNodo;//se guarda el nodo a desencolar
+        *desencolado = temp->dato;//el dato del primer nodo se asigna a desencolado
+        C->primerNodo = C->primerNodo->sgte;//actualiza el primer nodo a su siguiente nodo
+	    
+	    if (C->primerNodo == NULL) { // Si después de desencolar la cola queda vacía, se actualiza el último nodo a NULL
+            C->ultimoNodo = NULL;
+        }
+        free(temp); // Libera la memoria del nodo desencolado
+        C->qElementos--; // Disminuye la cantidad de elementos en la cola
+    }
+}
+
 
 /*USANDO el TAD TCOLA, diseña e implementa una función llamada existe que reciba una cola C y un valor entero X, 
 y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar -1.
