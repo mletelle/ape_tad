@@ -1,3 +1,4 @@
+*no borrar hasta miercoles 14* MODIFICAR ENLACES ANTES DE ENTREGAR
 # Actividad Práctica Entregable N° 2  
 
 ## Tipo de Datos Abstractos (TAD)
@@ -87,7 +88,7 @@ n1@{ shape: anchor}
 
 #### d) **USANDO** el `TAD TCOLA`, diseña e implementa una función llamada `existe` que reciba una cola `C` y un valor entero `X`, y retorne la posición en la que se encuentra el elemento `X`. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar `-1`.
 
-> Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c#L92)
+> Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c#L94)
 ```mermaid
 flowchart TD
     n1["existe"] --> n2["recorre la cola incrementando iterador"]
