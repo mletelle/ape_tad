@@ -71,9 +71,6 @@ flowchart TD
 ```
 
 Longitud:
-    int longitud(tCola *C) {
-        return C->qElementos;
-    }
 
 ```mermaid
 flowchart  TD
@@ -113,20 +110,3 @@ flowchart TD
 - Joyanes Aguilar. (2001). Fundamentos de Programación: Algoritmos, estructura de datos y objetos (4.a ed.). McGraw Hill. Capítulos 15-18.
 - Sznajdleder, P. A. (2021). Algorítmos a fondo con aplicaciones en C y Java. Capítulo 9.
 
-## Sugerencias:
-Para links [stackedit](https://stackedit.io/app#)
-
-Para **negrita**
-Para ****negrita****
->Para quote
-
-|                |Tabla|Columna                         |
-|----------------|-------------------------------|-----------------------------|
-|Texto|`Texto`            |Mas texto            |
-
-Graficos UML
-```mermaid
-sequenceDiagram
-Texto ->> Bob: Texto , how are you?
-Bob-->>John: Texto?
-Note right of John: Texto<br/>Texto<br/>Texto<br/>Texto.
