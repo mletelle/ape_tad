@@ -35,7 +35,7 @@ COLA crear() {
 int vacia(COLA C){
 /* Indica si la cola C está vacía, en cuyo caso retorna 1, 0 en otro caso. */
 	int cVacia = 1;
-	if(C!=NULL){
+	if(C.primerNodo!=NULL){
 		cVacia = 0;
 	}
 	return cVacia;
@@ -56,14 +56,14 @@ void encolar(COLA *C, int dato) {
 	tNodo *nuevoNodo;
 	asignar(&nuevoNodo, dato);
 	if(vacia(C)){
-        // Cola vacia, primerNodo y ultimoNodo apuntan al nuevo nodo
-        C->primerNodo = nuevoNodo;
-        C->ultimoNodo = nuevoNodo;
-    }else{
-        //Cola no vacia, enlaza el ultimo nodo al nuevo y actualiza ultimoNodo
-        C->ultimoNodo->sgte = nuevoNodo;
-        C->ultimoNodo = nuevoNodo;
-    }    
+        	//si la cola esta vacia primerNodo y ultimoNodo apuntan al nuevo nodo
+        	C->primerNodo = nuevoNodo;
+        	C->ultimoNodo = nuevoNodo;
+    	}else{
+        //si la cola no esta vacia, linkea el ultimo nodo al nuevo y actualiza ultimoNodo
+       		C->ultimoNodo->sgte = nuevoNodo;
+        	C->ultimoNodo = nuevoNodo;
+    	}    
 	C->qElementos++; // Incrementa la cantidad de elementos en la cola
 }
 
