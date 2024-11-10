@@ -109,3 +109,26 @@ void copiar(COLA *C1, COLA C2) {
 	}
 	*C1=nuevaCola;//asignar la nuevacola a C1
 }
+
+/*ubica en el frente de la cola C1 al elemento que se encuentra en la posicion posX.
+posX es una posicion valida en C1, comprendida entre 1 y la cantidad de elementos de la cola C1*/
+void llevarAlFrente(COLA *C1, int posX) {
+	tNodo *actual = C1->primerNodo;
+	tNodo *anterior = NULL;
+	int i = 1;
+	while (i < posX) {//recorrer la lista hasta llegar al nodo en posX
+		anterior = actual;
+		actual = actual->sgte;
+		i++;
+	}
+	if (actual != NULL && actual->sgte != NULL) {//si el nodo a mover no es el ultimo
+		if (anterior != NULL) {//mover el nodo de la posición posX
+			anterior->sgte = actual->sgte;
+		}
+		actual->sgte = C1->primerNodo;//mover el nodo al frente
+		C1->primerNodo = actual;
+		if (actual->sgte==NULL) {//si el nodo movido era el último, actualizamos el último nodo
+			C1->ultimoNodo = anterior;
+		}
+	}
+}
