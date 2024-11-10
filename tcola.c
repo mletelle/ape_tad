@@ -24,7 +24,8 @@ COLA crear() {
 // Crea una cola vacía. Inicializa la estructura de cola con inicio y último apuntando a NULL,
 //y establece qElementos en 0 
 // Deberia asignarle memoria con malloc al puntero que sea crea? No, el puntero es una variable simple
-    COLA colaVacia;
+    COLA colaVacia;// Aquí no se usa malloc, es una variable local de tipo COLA
+// Inicializa los valores de la cola
     colaVacia.inicio = NULL;// No hay nodos en la cola
     colaVacia.ultimo = NULL;
     colaVacia.qElementos = 0;// La cola empieza vacía
@@ -84,7 +85,7 @@ void desencolar(COLA *C, int* desencolado) {
 
 /* Retorna recursivamente la cantidad de elementos de la cola C. */
 int longitud(tCola *C) {//recibe el Tipo Exportado
-    return C->qElementos;//invoca con primer nodo
+    return C->qElementos;//retorna lo almacenado en el campo qelementos(0(1))
 }
 
 /*USANDO el TAD TCOLA, diseña e implementa una función llamada existe que reciba una cola C y un valor entero X, 
