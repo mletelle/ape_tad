@@ -36,11 +36,10 @@ n2["dato"]
 n3["tNodo"]
 end
 
-A["tCola"]  -- Contiene -->  B["qElementos: int"]
-A  -- Apunta a -->  D["ultimoNodo: tNodo*"]  &  n1["primerNodo: tNodo*"]
+A["tCola"]  -->  B["qElementos: cantidad de elementos"]  &  D["puntero a ultimoNodo"]  &  n1["puntero a primerNodo"]
 C  -- Apunta a -->  E
-D  -->  C
-n1  -->  C
+D  -- Apunta a -->  C
+n1  -- Apuntar -->  C
 C  -->  n2
 E  -- Apunta a -->  n3
 ```
