@@ -127,8 +127,11 @@ void llevarAlFrente(COLA *C1, int posX) {
 		}
 		actual->sgte = C1->primerNodo;//mover el nodo al frente
 		C1->primerNodo = actual;
-		if (actual->sgte==NULL) {//si el nodo movido era el último, actualizamos el último nodo
-			C1->ultimoNodo = anterior;
-		}
+	}
+	if (actual->sgte==NULL) {//si el nodo movido era el último, actualizamos el último nodo
+		tNodo *aux = NULL;
+		aux = C1->ultimoNodo;
+		C1->ultimoNodo = C1->primerNodo;
+		C1->primerNodo = aux;
 	}
 }
