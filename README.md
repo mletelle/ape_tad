@@ -47,7 +47,7 @@ E  -- Apunta a -->  n3
 
 
 Encolar:
-
+> Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c#L52)
 ```mermaid
 flowchart TD
     n1["encolar"] -- envia nuevoNodo y el dato por referencia --> n2["asignar"]
@@ -57,7 +57,7 @@ flowchart TD
     n4@{ shape: anchor}
 ```
 Desencolar:
-> Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/70da92a9b4fca99e28385ff6f3bb3e90b834a04b/tcola.c#L72)
+> Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c#L72)
 ```mermaid
 flowchart TD
     A["desencolar"] --> n1["esta vacia?"] & n9["retorna por referencia el dato del elemento desencolado"]
@@ -73,7 +73,7 @@ flowchart TD
 ```
 
 Longitud:
->Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/70da92a9b4fca99e28385ff6f3bb3e90b834a04b/tcola.c#L87)
+>Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c#L87)
 ```mermaid
 flowchart  TD
 A["longitud"]  -->  B["retornar cantidad elementos"]
