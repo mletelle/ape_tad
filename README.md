@@ -71,6 +71,10 @@ flowchart TD
 ```
 
 Longitud:
+    int longitud(tCola *C) {
+        return C->qElementos;
+    }
+
 ```mermaid
 flowchart  TD
 A["longitud"]  -->  B["retornar cantidad elementos"]
