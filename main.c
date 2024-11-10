@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include "tcola.h"
 
-/*USANDO el TAD TCOLA, diseña e implementa una función llamada existe que reciba una cola C y un valor entero X, 
-y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar -1.
-*/
+/*USANDO el TAD TCOLA, diseña e implementa una función llamada existe que reciba una cola C y un valor entero X,
+y retorne la posición en la que se encuentra el elemento X. 
+Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar -1.*/
 int existe(COLA *C, int x){
-/// Avanza sobre la lista sumando un valor I que determina la posicion del valor buscado 'x', si se encontró la variable encontrado cambia a verdadero y retorno obtiene la "posicion" dónde
-/// quedó I, si no se encontró el valor de "retorno" nunca cambia y la funcion retorna -1. Para encontrar el valor se recorre la lista de inicio a fin para encontrar el valor 'x', si se encontró 
-/// termina de buscar.
+/* Avanza sobre la lista incrementando el iterado que determina la posicion del valor buscado x, si se encontro la variable encontrado cambia a verdadero y a retorno se le asigna la posicion donde
+quedo el iterador, si no se encontro el valor x, el valor de retorno nunca cambia y la funcion retorna -1. 
+Para encontrar el valor se recorre la lista desde el inicio, si se encontró termina de buscar.*/
   int retorno = -1;
   int encontrado = 0;
   int i = 1;
