@@ -29,7 +29,7 @@ n3  -->  n4["crear"]  &  n5["vacia"]  &  n6["encolar"]  &  n7["desencolar"]  &  
 #### a) ¿Qué estructura de datos propondrían para que el tiempo de ejecución de los algoritmos `longitud`, `encolar` y `desencolar` sea O(1)?
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
 
-Nuestra propuesta utiliza una estructura de datos eficiente para lograr tiempos de ejecución `O(1)` en estas operaciones, basada en una estructura de tipo `tCola`, que actúa como “locomotora” de la lista enlazada que es la cola; esta estructura contiene punteros a los nodos **primero** y **último**, y con un contador que mantiene el **número de elementos** en la cola.
+Nuestra propuesta utiliza una estructura de datos eficiente para lograr tiempos de ejecución `O(1)` en estas operaciones, basada en una estructura de tipo `tCola`, que actúa como “locomotora” de la lista enlazada que constituye la cola de elementos, que son representados como nodos; esta estructura contiene punteros a los nodos **primero** y **último**, y con un contador que mantiene el **número de elementos** en la cola.
 
  - `longitud`: se accede al valor contenido en el contador `qElementos`, tiempo O(1).  
  - `encolar`: inserta un nuevo nodo al final de la lista, actualizando el puntero ultimoNodo, enlazando al nuevo elemento encolado, tiempo O(1).  
