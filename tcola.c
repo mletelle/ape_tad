@@ -5,16 +5,16 @@
 
 //TNodo va a modelar los nodos contenidos en la "lista"
 typedef struct tNodo {
-    int dato;
-    struct tNodo *sgte;  // Puntero al siguiente nodo
+	    int dato;
+	    struct tNodo *sgte;  // Puntero al siguiente nodo
 } tNodo;
 
 //TCola va a ser la "locomotora de la lista", el tipo de dato exportado del TAD
 typedef struct tCola {
 //resuelto como el parcial
-    int qElementos;       // Cantidad de elementos en la cola
-    tNodo *primerNodo;        // Puntero al primer nodo (frente de la cola)
-    tNodo *ultimoNodo;        // Puntero al último nodo (final de la cola)
+	    int qElementos;       // Cantidad de elementos en la cola
+	    tNodo *primerNodo;        // Puntero al primer nodo (frente de la cola)
+	    tNodo *ultimoNodo;        // Puntero al último nodo (final de la cola)
 } tCola;
 
 // Implementacion de 3 funcionalidades provistas por el TAD(y las auxiliares necesarias)
@@ -24,12 +24,12 @@ COLA crear() {
 // Crea una cola vacía. Inicializa la estructura de cola con inicio y último apuntando a NULL,
 //y establece qElementos en 0 
 // Deberia asignarle memoria con malloc al puntero que sea crea? No, el puntero es una variable simple
-    COLA colaVacia;// Aquí no se usa malloc, es una variable local de tipo COLA
+	COLA colaVacia;// Aquí no se usa malloc, es una variable local de tipo COLA
 // Inicializa los valores de la cola
-    colaVacia.inicio = NULL;// No hay nodos en la cola
-    colaVacia.ultimo = NULL;
-    colaVacia.qElementos = 0;// La cola empieza vacía
-    return colaVacia;// Retorna la cola inicializada
+	colaVacia.inicio = NULL;// No hay nodos en la cola
+	colaVacia.ultimo = NULL;
+	colaVacia.qElementos = 0;// La cola empieza vacía
+	return colaVacia;// Retorna la cola inicializada
 }
 
 int vacia(COLA C){
@@ -52,9 +52,9 @@ void asignar(tNodo **nodo, int dato){
 void encolar(COLA *C, int dato) {
 /* Agrega el elemento dato al final de la cola C. */
 // Entra TipoExportado y se invoca funcion auxiliar con *ultimoNodo
-    tNodo *nuevoNodo;
-    asignar(&nuevoNodo, dato);
-    if(vacia(C)){
+	tNodo *nuevoNodo;
+	asignar(&nuevoNodo, dato);
+	if(vacia(C)){
         // Cola vacia, primerNodo y ultimoNodo apuntan al nuevo nodo
         C->primerNodo = nuevoNodo;
         C->ultimoNodo = nuevoNodo;
