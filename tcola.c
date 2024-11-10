@@ -65,19 +65,6 @@ void encolar(COLA *C, int dato) {
     C->qElementos++; // Incrementa la cantidad de elementos en la cola
 }
 
-//Utilizado para acceder a la cantidad de elementos de la lista de la cola
-int longitudNodos(tNodo *nodo) {//recibe el primer tNodo 
-    int long = 0;//si esta vacia devuelve 0
-    if (nodo!= NULL) {//no utilizo vacia xq esa recibe un tCola
-        long=1+longitudNodos(nodo->sgte);//devuelve cantidad de elementos
-    }
-    return long;
-}
-/* Retorna recursivamente la cantidad de elementos de la cola C. */
-int longitud(tCola *C) {//recibe el Tipo Exportado
-    return longitudNodos(C->primerNodo);//invoca con primer nodo
-}
-
 /* Desencola el primer elemento de la cola C y lo retorna en el parámetro desencolado.
 La cantidad de elementos de la cola C disminuye en 1.
 Pre-condición: cola no vacía*/
@@ -95,6 +82,10 @@ void desencolar(COLA *C, int* desencolado) {
     }
 }
 
+/* Retorna recursivamente la cantidad de elementos de la cola C. */
+int longitud(tCola *C) {//recibe el Tipo Exportado
+    return C->qElementos;//invoca con primer nodo
+}
 
 /*USANDO el TAD TCOLA, diseña e implementa una función llamada existe que reciba una cola C y un valor entero X, 
 y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar -1.
