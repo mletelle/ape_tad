@@ -95,7 +95,7 @@ int verPrimero(COLA C) {
 }
 
 /* Retorna recursivamente la cantidad de elementos de la cola C. */
-int longitud(tCola *C) {//recibe el Tipo Exportado
+int longitud(Cola *C) {//recibe el Tipo Exportado
     return C->qElementos;//retorna lo almacenado en el campo qelementos(0(1))
 }
 
