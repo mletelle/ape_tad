@@ -17,13 +17,13 @@ typedef struct tCola {
     tNodo *ultimoNodo;        // Puntero al último nodo (final de la cola)
 } tCola;
 
-// Implementacion de 3 funcionalidades provistas por el TAD
-//Funciones publicas del TAD
+// Implementacion de 3 funcionalidades provistas por el TAD(y las auxiliares necesarias)
+//Funciones publicas y privadas del TAD
 
 COLA crear() {
-    /* Crea una cola vacía. Inicializa la estructura de cola con inicio y último apuntando a NULL,
-       y establece qElementos en 0 */
-/// Deberia asignarle memoria con malloc al puntero que sea crea?
+// Crea una cola vacía. Inicializa la estructura de cola con inicio y último apuntando a NULL,
+//y establece qElementos en 0 
+// Deberia asignarle memoria con malloc al puntero que sea crea? No, el puntero es una variable simple
     COLA colaVacia;
     colaVacia.inicio = NULL;// No hay nodos en la cola
     colaVacia.ultimo = NULL;
@@ -31,43 +31,55 @@ COLA crear() {
     return colaVacia;// Retorna la cola inicializada
 }
 
-void encolar(COLA *C, int dato){
-/* Agrega el elemento dato al final de la cola C. */
-/// Suponiendo que entra *ultimoNodo
-	if(vacia((*C)) == 0){
-	/// si se combinaran quedaria:
-	// (*C)->sgte = malloc(sizeof(struct tNodo))
-	// (*C)->sgte->sgte = NULL;
-	// (*C)->dato = dato;
-	
-	   asignar((*C)->sgte,dato)
-	   
-	
-	}
-}
-//REVISAR LA NECESIDAD DE ASIGNAR TENIENDO ENCOLAR,SE COMBINAN?
-/// Considero que deberia mantenerse, porque si fuera todo parte de un mismo quedaría (*C)->sgte->sgte para setear el siguiente del nuevo nodo, y según "las buenas practicas de programacion"
-/// no deberia haber un puntero que haga "sgte->sgte", cito: "(...)chicos no hagan(no me gusta) que la lista sea el siguiente del siguiente del siguiente..."
-
-void asignar(NODO *C,int dato){
-// Asigna memoria a un nodo e ingresa el dato en el campo "dato" de la estructura tNodo, además setea el siguiente de
-// del nodo en NULL (Utilizado para encolar al final, modificar en caso de querer usarlo para otro modulo)
-	(*C) = malloc(sizeof(struct tNodo));
-	(*C)->sgte = NULL;
-	(*C)->dato = dato;
-}
-
-	
 int vacia(COLA C){
 /* Indica si la cola C está vacía, en cuyo caso retorna 1, 0 en otro caso. */
 	int cVacia = 1;
-	if(C != NULL){
+	if(C!=NULL){
 		cVacia = 0;
 	}
 	return cVacia;
 }
-/*
-USANDO el TAD TCOLA, diseña e implementa una función llamada existe que reciba una cola C y un valor entero X, 
+
+void asignar(tNodo **nodo, int dato){
+// Asigna memoria a un nodo e ingresa el dato en el campo "dato" de la estructura tNodo, además setea el siguiente de
+// del nodo en NULL (Utilizado para encolar al final)
+	*nodo = malloc(sizeof(tNodo));
+	(*nodo)->sgte = NULL;
+	(*nodo)->dato = dato;
+}
+
+void encolar(COLA *C, int dato) {
+/* Agrega el elemento dato al final de la cola C. */
+// Entra TipoExportado y se invoca funcion auxiliar con *ultimoNodo
+    tNodo *nuevoNodo;
+    asignar(&nuevoNodo, dato);
+    if(vacia(C)){
+        // Cola vacia, primerNodo y ultimoNodo apuntan al nuevo nodo
+        C->primerNodo = nuevoNodo;
+        C->ultimoNodo = nuevoNodo;
+    }else{
+        //Cola no vacia, enlaza el ultimo nodo al nuevo y actualiza ultimoNodo
+        C->ultimoNodo->sgte = nuevoNodo;
+        C->ultimoNodo = nuevoNodo;
+    }    
+    C->qElementos++; // Incrementa la cantidad de elementos en la cola
+}
+
+//Utilizado para acceder a la cantidad de elementos de la lista de la cola
+int longitudNodos(tNodo *nodo) {//recibe el primer tNodo 
+    int long = 0;//si esta vacia devuelve 0
+    if (nodo!= NULL) {//no utilizo vacia xq esa recibe un tCola
+        long=1+longitudNodos(nodo->sgte);//devuelve cantidad de elementos
+    }
+    return long;
+}
+/* Retorna recursivamente la cantidad de elementos de la cola C. */
+int longitud(tCola *C) {//recibe el Tipo Exportado
+    return longitudNodos(C->primerNodo);//invoca con primer nodo
+}
+
+
+/*USANDO el TAD TCOLA, diseña e implementa una función llamada existe que reciba una cola C y un valor entero X, 
 y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar -1.
 */
 int existe(COLA *C, int x){
