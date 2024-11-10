@@ -46,15 +46,31 @@ E  -- Apunta a -->  n3
 ```
 #### b) Se pide que implementes, usando la estructura de datos propuesta en el inciso a), al menos 3 de las funcionalidades provistas por el TAD.
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
+
 Crear:
 
 ```mermaid
-
+flowchart TD
+    n1["crear"] --> n2["crea una COLA"]
+    n1 -- retorna una COLA inicializada --> n5["Untitled Node"]
+    n2 --> n3["asigna la cantidad de elementos en 0"] & n4["inicializa los punteros a NULL"]
+    n1@{ shape: rect}
+    n5@{ shape: f-circ}
 ```
 Vacia:
 
 ```mermaid
-
+flowchart TD
+    n1["vacia"] --> n2["esta vacia?"]
+    n2 -- si --> n3["retorna 1"]
+    n2 -- no --> n4["retorna 0"]
+    n5["Untitled Node"] -- recibe la COLA --> n1
+    n1@{ shape: rect}
+    n2@{ shape: diam}
+    n3@{ shape: rect}
+    n4@{ shape: rect}
+    n5@{ shape: anchor}
+    style n3 color:#000000
 ```
 Encolar:
 
@@ -63,7 +79,8 @@ flowchart TD
     n1["encolar"] -- envia nuevoNodo y el dato por referencia --> n2["asignar"]
     n2 -- pregunta si esta vacia --> n3["vacia"]
     n3 -- devuelve estado --> n2
-    n4["Untitled Node"] -- recibe cola y dato --> n1
+    n4["Untitled Node"] -- recibe COLA y dato --> n1
+    n2 -- devuelve el nodo asignado --> n1
     n4@{ shape: anchor}
 ```
 Desencolar:
@@ -84,7 +101,11 @@ flowchart TD
 Ver primero:
 
 ```mermaid
-
+flowchart TD
+    n2["Untitled Node"] -- recibe COLA --> n1["verPrimero"]
+    n1 -- retorna el valor del primer dato --> n3["Untitled Node"]
+    n2@{ shape: anchor}
+    n3@{ shape: anchor}
 ```
 Longitud:
 ```mermaid
@@ -96,12 +117,28 @@ n1@{ shape: anchor}
 Copiar:
 
 ```mermaid
-
+flowchart TD
+    n2["Untitled Node"] -- recibe COLA --> n1["copiar"]
+    n1 -- <span style=background-color:>crear otra cola</span> --> n4["recorre COLA"]
+    n4 -- <span style=background-color:>copia elemento a elemento</span> --> n5["asigna la nueva COLA al parametro recibido por referencia"]
+    n2@{ shape: anchor}
 ```
 Llevar al frente:
 
 ```mermaid
-
+flowchart TD
+    n2["Untitled Node"] -- recibe COLA y posX --> n1["llevarAlFrente"]
+    n1 -- crea nodos auxiliares --> n3["recorre hasta encontrar la posicion X"]
+    n3 --> n4["se encontró?"]
+    n4 -- no --> n3
+    n4 -- si --> n5["mover el nodo al inicio"]
+    n5 -- actualiza primerNodo --> n6["Untitled Node"]
+    n5 -- conecta los nodos anterior y siguiente al de posX --> n7["Untitled Node"]
+    n2@{ shape: anchor}
+    n1@{ shape: rect}
+    n4@{ shape: diam}
+    n6@{ shape: anchor}
+    n7@{ shape: anchor}
 ```
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
 
