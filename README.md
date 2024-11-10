@@ -66,11 +66,32 @@ flowchart TD
     n7@{ shape: f-circ}
 ```
 
+Longitud:
+```mermaid
+flowchart  TD
+A["longitud"]  -->  B["retornar cantidad elementos"]
+n1["Untitled Node"]  -- recibe la COLA -->  A
+n1@{ shape: anchor}
+   ```
+
 >Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
 
 #### c) Si la especificación de la interfaz del `TAD TCOLA` no cuenta con la funcionalidad `longitud`, ¿podrían determinar la cantidad de elementos de la cola usando el resto de las funcionalidades? Diseñe la solución propuesta, asumiendo el rol de usuario del TAD.
 
 #### d) **USANDO** el `TAD TCOLA`, diseña e implementa una función llamada `existe` que reciba una cola `C` y un valor entero `X`, y retorne la posición en la que se encuentra el elemento `X`. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar `-1`.
+
+
+```mermaid
+flowchart TD
+    n1["existe"] --> n2["recorre la cola incrementando iterador"]
+    n2 --> n3["existe?"]
+    n3 -- si --> n4["devuelve la posicion(iterador)"]
+    n3 -- no --> n5["devuelve -1"]
+    n6["Untitled Node"] -- recibe COLA --> n1
+    n1@{ shape: rect}
+    n3@{ shape: diam}
+    n6@{ shape: anchor}
+```
 
 #### e) ¿En qué aspectos la forma de trabajo con TADs `mejora` o `facilita` la resolución de problemas usando algoritmos que trabajamos hasta el momento?
 
