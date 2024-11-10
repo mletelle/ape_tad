@@ -32,8 +32,8 @@ n3  -->  n4["crear"]  &  n5["vacia"]  &  n6["encolar"]  &  n7["desencolar"]  &  
 Nuestra propuesta utiliza una estructura de datos eficiente para lograr tiempos de ejecución `O(1)` en estas operaciones, basada en una estructura de tipo `tCola`, que actúa como “locomotora” de la lista enlazada constituida por nodos de tipo `tNodo`; esta estructura contiene punteros a los nodos **primero** y **último**, y con un contador que mantiene el **número de elementos** en la cola.
 
  - `longitud`: se accede al valor contenido en el contador `qElementos`, tiempo O(1).  
- - `encolar`: inserta un nuevo nodo al final de la lista, actualizando el puntero ultimoNodo, enlazando al nuevo elemento encolado, tiempo O(1).  
- - `desencolar`: elimina el primer nodo, moviendo el puntero primerNodo, y actualizando el primer elemento de la cola, tiempo O(1).
+ - `encolar`: inserta un nuevo nodo al final de la lista, actualiza el puntero ultimoNodo, enlazando el último al nuevo elemento encolado, incrementa `qElementos`, tiempo O(1).  
+ - `desencolar`: elimina el primer nodo, actualiza el primer elemento de la cola, disminuye `qElementos`, tiempo O(1).
 
 El tipo exportado se define en el header como `typedef struct tCola *COLA;`
 
@@ -51,7 +51,7 @@ end
 A["tCola"]  -->  B["qElementos: cantidad de elementos"]  &  D["puntero a ultimoNodo"]  &  n1["puntero a primerNodo"]
 C  -- Apunta a -->  E
 D  -- Apunta a -->  C
-n1  -- Apuntar -->  C
+n1  -- Apunta a -->  C
 C  -->  n2
 E  -- Apunta a -->  n3
 ```
