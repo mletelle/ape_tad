@@ -23,7 +23,7 @@ Una Cola es una estructura de datos tipo FIFO (First In, First Out), donde el pr
 
 ## Consignas
 
-#### a) ¿Qué estructura de datos propondrían para que el tiempo de ejecución de los algoritmos `longitud`, `encolar` y `desencolar` sea O(1)?
+### a) ¿Qué estructura de datos propondrían para que el tiempo de ejecución de los algoritmos `longitud`, `encolar` y `desencolar` sea O(1)?
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
 
 Nuestra propuesta utiliza una estructura de datos eficiente para lograr tiempos de ejecución `O(1)` en estas operaciones, basada en una estructura de tipo `tCola`, que actúa como “locomotora” de la lista enlazada constituida por nodos de tipo `tNodo`; esta estructura contiene punteros a los nodos **primero** y **último**, y con un contador que mantiene el **número de elementos** en la cola.
@@ -37,47 +37,81 @@ El tipo exportado se define en el header como `typedef struct tCola *COLA;`
 Y la estructura de la implementación puede entenderse más fácilmente con el siguiente gráfico:
 ![ape2-tcola](https://github.com/user-attachments/assets/43d7a220-cd19-400e-bc7e-b8182b807359)
 
-#### b) Se pide que implementes, usando la estructura de datos propuesta en el inciso a), al menos 3 de las funcionalidades provistas por el TAD.
+### b) Se pide que implementes, usando la estructura de datos propuesta en el inciso a), al menos 3 de las funcionalidades provistas por el TAD.
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
 
-Crear:
+#### Función crear():
+- Datos de entrada: No recibe parámetros.
+- Precondición: Ninguna.
+- Datos de salida: Una cola vacía.
+- Postcondición: La cola tiene primerNodo = NULL, ultimoNodo = NULL y qElementos = 0.
 
 ![ape2-crear](https://github.com/user-attachments/assets/5fe09f7d-8bb8-4ead-898a-77df34384b38)
 
-Vacia:
+#### Función vacia(COLA C):
+- Datos de entrada: Una cola C.
+- Precondición: La cola debe haber sido inicializada.
+- SaDatos de salidalida: 1 si la cola está vacía, 0 si no.
+- Postcondición: Ninguna.
 
 ![ape2-vacia](https://github.com/user-attachments/assets/fa07d513-d08a-4ccf-a052-9eefcb3551ca)
 
-Encolar:
+#### Procedimiento encolar(COLA *C, int dato):
+- Datos de entrada: Una cola C y un entero dato que representa el valor a encolar.
+- Precondición: La cola debe haber sido inicializada.
+- Datos de salida: La cola C modificada con el nuevo elemento al final.
+- Postcondición: El nuevo nodo es agregado al final de la cola, y qElementos aumenta en 1.
 
 ![ape2-encolar](https://github.com/user-attachments/assets/690278e2-c8de-4cda-8393-7c51a6865a47)
 
-Desencolar:
+#### Procedimiento desencolar(COLA *C, int* desencolado):
+- Datos de entrada: Una cola C y un puntero desencolado para almacenar el valor removido.
+- Precondición: La cola no debe estar vacía.
+- Datos de salida: El valor desencolado es almacenado en *desencolado.
+- Postcondición: El primer nodo es eliminado, y qElementos disminuye en 1.
 
 ![ape2-desencolar](https://github.com/user-attachments/assets/d8c4e963-73ce-4707-a94c-d91844a74959)
 
-Ver primero:
+#### Procedimiento verPrimero
+- Datos de entrada: Una cola C.
+- Precondición: La cola no debe estar vacía.
+- Datos de salida: Un entero que corresponde al valor del primer elemento en la cola.
+- Postcondición: Retorna el valor almacenado en el primer nodo de la cola sin modificar la estructura de la misma.
 
 ![ape2-verPrimero](https://github.com/user-attachments/assets/edf129a1-bd11-4159-81fe-3965acf9d980)
 
-Longitud:
+#### Función longitud
+- Datos de entrada: Una cola C.
+- Precondición: La cola debe estar correctamente inicializada.
+- Datos de salida: Un entero que representa la cantidad de elementos en la cola.
+- Postcondición: Retorna el valor del contador qElementos que indica la cantidad de elementos en la cola.
 
 ![ape2-longitud](https://github.com/user-attachments/assets/5608b3a3-9f5e-44e4-bd4f-8efa8896d94d)
 
 
-Copiar:
+#### Procedimiento copiar
+- Datos de entrada: Dos punteros a colas, C1 y C2. C1 es la cola destino y C2 es la cola origen.
+- Precondición: Ambas colas deben estar correctamente inicializadas.
+- Datos de salida: Ninguno (función void).
+- Postcondición: La cola C1 será una copia exacta de la cola C2, con los mismos valores en el mismo orden.
+
 
 ![ape2-copiar](https://github.com/user-attachments/assets/154837d5-80dc-4cfc-867a-482f6ba18059)
 
 
-Llevar al frente:
+#### Procedimiento: llevarAlFrente
+- Datos de entrada: Un puntero a cola C1 y un entero posX que indica la posición del nodo que se desea mover al frente.
+- Datos de salida: Ninguno (función void).
+- Precondición: posX debe ser una posición válida en la cola (es decir, 1 ≤ posX ≤ longitud(C1)).
+- Postcondición: El nodo en la posición posX es movido al frente de la cola, y los nodos restantes conservan su orden relativo.
+
 
 ![ape2-llevarAlFrente](https://github.com/user-attachments/assets/73b38f93-dae3-4a00-a305-da5c66b8fc8a)
 
 
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
 
-#### c) Si la especificación de la interfaz del `TAD TCOLA` no cuenta con la funcionalidad `longitud`, ¿podrían determinar la cantidad de elementos de la cola usando el resto de las funcionalidades? Diseñe la solución propuesta, asumiendo el rol de usuario del TAD.
+### c) Si la especificación de la interfaz del `TAD TCOLA` no cuenta con la funcionalidad `longitud`, ¿podrían determinar la cantidad de elementos de la cola usando el resto de las funcionalidades? Diseñe la solución propuesta, asumiendo el rol de usuario del TAD.
 
 Si la especificación de la estructura del TAD COLA no incluyera la funcionalidad `longitud`, aún podría ser posible determinar la cantidad de elementos de la cola cuando se utilicen las demás operaciones disponibles como `encolar` y `desencolar`. Para lograr esto:
 
@@ -86,13 +120,34 @@ Si la especificación de la estructura del TAD COLA no incluyera la funcionalida
 - y disminuyendo con cada `desencolar`. 
 
 De esta forma el contador reflejaría en todo momento, con un tiempo de acceso de `O(1)`, el total de los elementos de la cola, sin emplear la función `longitud` del TAD.
+
 #### d) **USANDO** el `TAD TCOLA`, diseña e implementa una función llamada `existe` que reciba una cola `C` y un valor entero `X`, y retorne la posición en la que se encuentra el elemento `X`. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar `-1`.
 
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/main.c)
 
+#### Funcion existe: 
+
+Datos de Entrada:
+- COLA *C: Un puntero a una estructura de cola, que contiene una lista de nodos. Cada nodo tiene un valor entero (DATO) y un puntero al siguiente nodo (sgte).
+- X: Un valor entero que se busca en la cola. Es el dato de entrada que la función debe localizar en los nodos de la cola.
+
+Precondiciones:
+- COLA no nula: El puntero a la cola no debe ser NULL. La cola debe estar correctamente inicializada antes de llamar a la función.
+
+Datos de Salida:
+- La función devuelve un entero
+    - Si el valor x se encuentra en la cola, la función devuelve la posición(empezando desde 1) del nodo en el que se encuentra.
+    - Si el valor x no se encuentra en la cola, la función devuelve -1
+
+Postcondiciones:
+- Retorno de la posición del valor encontrado:
+    - Si el valor X se encuentra en uno de los nodos de la cola, la función retorna el número de la posición de dicho valor.
+    - Si el valor X no se encuentra en la cola, la función retorna -1.
+
+
 ![ape2-existe](https://github.com/user-attachments/assets/3d9348ef-d0f3-4a4a-8059-d7d50feb9054)
 
-#### e) ¿En qué aspectos la forma de trabajo con TADs `mejora` o `facilita` la resolución de problemas usando algoritmos que trabajamos hasta el momento?
+### e) ¿En qué aspectos la forma de trabajo con TADs `mejora` o `facilita` la resolución de problemas usando algoritmos que trabajamos hasta el momento?
 
 El trabajo con Tipos Abstractos de Datos (TAD) **mejora** y **facilita** la resolución de problemas complejos, comparado con tipos de datos primitivos del lenguaje que usábamos antes de aprender sobre TAD por lo siguiente:
 
