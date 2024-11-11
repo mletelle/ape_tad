@@ -153,7 +153,7 @@ El trabajo con Tipos Abstractos de Datos (TAD) **mejora** y **facilita** la reso
 
 El uso de TAD es más **flexible** a la hora de plantear y abordar un problema, ya que **abstrae** al usuario de los detalles de implementación o de cómo resolver un problema específico. En lugar de enfocarse en cómo se va a hacer, el TAD se centra en lo que se quiere lograr.
 
-El usuario no tiene que aprender **CÓMO** funciona, sino **QUÉ** hace, ya que los TAD **ocultan** los detalles de implementación y el usuario interactúa sólo mediante una **interfaz**, a través de un conjunto de operaciones definidas, sin necesidad de conocer la estructura interna.
+El usuario no tiene que saber/aprender **CÓMO** funciona, sino **QUÉ** hace, ya que los TAD **ocultan** los detalles de implementación y el usuario interactúa sólo mediante una **interfaz**, a través de un conjunto de operaciones definidas, sin necesidad de conocer la estructura interna.
 
 Ya que los problemas reales implican tener que modelar situaciones más complejas que datos nativos del lenguaje, los TAD proporcionan un modelo abstracto que permite manipular los datos de manera más sencilla y eficiente. Ahorrando tiempo al usuario de nuestra `COLA`  ya que de esta manera, sólo deberá `crear` la cola y suministrar un dato para `encolar`, y no debe diseñar la estructura y cada una de las funciones desde 0.
 Incluso, si una persona no sabe programar, puede entender la lógica de mi algoritmo que emplea TAD, ya que este utiliza palabras descriptivas (como `vacía` o `encolar`), que reflejan claramente las acciones que realiza el algoritmo.
