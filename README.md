@@ -144,8 +144,8 @@ Postcondiciones:
     - Si el valor X se encuentra en uno de los nodos de la cola, la función retorna el número de la posición de dicho valor.
     - Si el valor X no se encuentra en la cola, la función retorna -1.
 
+![ape2-existe drawio (1)](https://github.com/user-attachments/assets/a7aa994c-a804-4c8e-9555-63518258cdcd)
 
-![ape2-existe](https://github.com/user-attachments/assets/3d9348ef-d0f3-4a4a-8059-d7d50feb9054)
 
 ### e) ¿En qué aspectos la forma de trabajo con TADs `mejora` o `facilita` la resolución de problemas usando algoritmos que trabajamos hasta el momento?
 
