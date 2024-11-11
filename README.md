@@ -19,12 +19,7 @@ Aunque los problemas básicos pueden resolverse con estructuras simples como var
 
 ## TAD COLA
 Una Cola es una estructura de datos tipo FIFO (First In, First Out), donde el primer elemento en entrar es el primero en salir, como en un consultorio médico. Frecuentemente, se utiliza como un almacenamiento temporal que conserva el orden de llegada de los elementos hasta que puedan ser procesados. Al igual que la pila, la cola es un subtipo de lista.
-```mermaid
-flowchart  TD
-n1["TAD TCOLA"]  -->  n2["tipo exportado COLA"]
-n2  -->  n3["interface"]
-n3  -->  n4["crear"]  &  n5["vacia"]  &  n6["encolar"]  &  n7["desencolar"]  &  n8["verPrimero"]  &  n9["longitud"]  &  n10["copiar"]  &  n11["llevarAlFrente"]
-```
+![ape2-tad_cola](https://github.com/user-attachments/assets/e8a6edb5-9650-49a1-82d8-ce5178f9ddee)
 
 ## Consignas
 
@@ -40,119 +35,46 @@ Nuestra propuesta utiliza una estructura de datos eficiente para lograr tiempos 
 El tipo exportado se define en el header como `typedef struct tCola *COLA;`
 
 Y la estructura de la implementación puede entenderse más fácilmente con el siguiente gráfico:
-```mermaid
-flowchart  TD
+![ape2-tcola](https://github.com/user-attachments/assets/43d7a220-cd19-400e-bc7e-b8182b807359)
 
-subgraph  Nodo["Nodo"]
-E["sgte"]
-C["tNodo"]
-n2["dato"]
-n3["tNodo"]
-end
-
-A["tCola"]  -->  B["qElementos: cantidad de elementos"]  &  D["puntero a ultimoNodo"]  &  n1["puntero a primerNodo"]
-C  -- Apunta a -->  E
-D  -- Apunta a -->  C
-n1  -- Apunta a -->  C
-C  -->  n2
-E  -- Apunta a -->  n3
-```
 #### b) Se pide que implementes, usando la estructura de datos propuesta en el inciso a), al menos 3 de las funcionalidades provistas por el TAD.
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
 
 Crear:
 
-```mermaid
-flowchart TD
-    n1["crear"] --> n2["crea una COLA"]
-    n1 -- retorna una COLA inicializada --> n5["Untitled Node"]
-    n2 --> n3["asigna la cantidad de elementos en 0"] & n4["inicializa los punteros a NULL"]
-    n1@{ shape: rect}
-    n5@{ shape: f-circ}
-```
+![ape2-crear](https://github.com/user-attachments/assets/5fe09f7d-8bb8-4ead-898a-77df34384b38)
+
 Vacia:
 
-```mermaid
-flowchart TD
-    n1["vacia"] --> n2["esta vacia?"]
-    n2 -- si --> n3["retorna 1"]
-    n2 -- no --> n4["retorna 0"]
-    n5["Untitled Node"] -- recibe la COLA --> n1
-    n1@{ shape: rect}
-    n2@{ shape: diam}
-    n3@{ shape: rect}
-    n4@{ shape: rect}
-    n5@{ shape: anchor}
-    style n3 color:#000000
-```
+![ape2-vacia](https://github.com/user-attachments/assets/fa07d513-d08a-4ccf-a052-9eefcb3551ca)
+
 Encolar:
 
-```mermaid
-flowchart TD
-    n1["encolar"] -- envia nuevoNodo y el dato por referencia --> n2["asignar"]
-    n2 -- pregunta si esta vacia --> n3["vacia"]
-    n3 -- devuelve estado --> n2
-    n4["Untitled Node"] -- recibe COLA y dato --> n1
-    n2 -- devuelve el nodo asignado --> n1
-    n4@{ shape: anchor}
-```
+![ape2-encolar](https://github.com/user-attachments/assets/690278e2-c8de-4cda-8393-7c51a6865a47)
+
 Desencolar:
 
-```mermaid
-flowchart TD
-    A["desencolar"] --> n1["esta vacia?"] & n9["retorna por referencia el dato del elemento desencolado"]
-    n1 -- no --> n2["apuntar primerElemento al segundo"]
-    n2 --> n5["aislar y eliminar"]
-    n5 --> n6["reducir cantidad de elementos"]
-    n1 -- si --> n7["Untitled Node"]
-    n8["Untitled Node"] -- recibe COLA --> A
+![ape2-desencolar](https://github.com/user-attachments/assets/d8c4e963-73ce-4707-a94c-d91844a74959)
 
-    n1@{ shape: diam}
-    n7@{ shape: f-circ}
-    n8@{ shape: anchor}
-```
 Ver primero:
 
-```mermaid
-flowchart TD
-    n2["Untitled Node"] -- recibe COLA --> n1["verPrimero"]
-    n1 -- retorna el valor del primer dato --> n3["Untitled Node"]
-    n2@{ shape: anchor}
-    n3@{ shape: anchor}
-```
+![ape2-verPrimero](https://github.com/user-attachments/assets/edf129a1-bd11-4159-81fe-3965acf9d980)
+
 Longitud:
-```mermaid
-flowchart  TD
-A["longitud"]  -->  B["retornar cantidad elementos"]
-n1["Untitled Node"]  -- recibe la COLA -->  A
-n1@{ shape: anchor}
-   ```
+
+![ape2-longitud](https://github.com/user-attachments/assets/5608b3a3-9f5e-44e4-bd4f-8efa8896d94d)
+
+
 Copiar:
 
-```mermaid
-flowchart TD
-    n2["Untitled Node"] -- recibe COLA --> n1["copiar"]
-    n1 -- <span style=background-color:>crear otra cola</span> --> n4["recorre COLA"]
-    n4 -- <span style=background-color:>copia elemento a elemento</span> --> n5["asigna la nueva COLA al parametro recibido por referencia"]
-    n2@{ shape: anchor}
-```
+![ape2-copiar](https://github.com/user-attachments/assets/154837d5-80dc-4cfc-867a-482f6ba18059)
+
+
 Llevar al frente:
 
-```mermaid
-flowchart TD
-    n2["Untitled Node"] -- recibe COLA y posX --> n1["llevarAlFrente"]
-    n1 -- crea nodos auxiliares --> n3["recorre hasta encontrar la posicion X"]
-    n3 --> n4["se encontró?"]
-    n4 -- no --> n3
-    n4 -- si --> n5["mover el nodo al inicio"]
-    n5 -- actualiza primerNodo --> n6["Untitled Node"]
-    n5 -- conecta los nodos anterior y siguiente al de posX --> n7["Untitled Node"]
-    n2@{ shape: anchor}
-    n1@{ shape: rect}
-    n4@{ shape: diam}
-    n6@{ shape: anchor}
-    n7@{ shape: anchor}
-```
+![ape2-llevarAlFrente](https://github.com/user-attachments/assets/73b38f93-dae3-4a00-a305-da5c66b8fc8a)
+
+
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
 
 #### c) Si la especificación de la interfaz del `TAD TCOLA` no cuenta con la funcionalidad `longitud`, ¿podrían determinar la cantidad de elementos de la cola usando el resto de las funcionalidades? Diseñe la solución propuesta, asumiendo el rol de usuario del TAD.
@@ -167,17 +89,8 @@ De esta forma el contador reflejaría en todo momento, con un tiempo de acceso d
 #### d) **USANDO** el `TAD TCOLA`, diseña e implementa una función llamada `existe` que reciba una cola `C` y un valor entero `X`, y retorne la posición en la que se encuentra el elemento `X`. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar `-1`.
 
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/main.c)
-```mermaid
-flowchart TD
-    n1["existe"] --> n2["recorre la cola incrementando iterador"]
-    n2 --> n3["existe?"]
-    n3 -- si --> n4["devuelve la posicion(iterador)"]
-    n3 -- no --> n5["devuelve -1"]
-    n6["Untitled Node"] -- recibe COLA --> n1
-    n1@{ shape: rect}
-    n3@{ shape: diam}
-    n6@{ shape: anchor}
-```
+
+![ape2-existe](https://github.com/user-attachments/assets/3d9348ef-d0f3-4a4a-8059-d7d50feb9054)
 
 #### e) ¿En qué aspectos la forma de trabajo con TADs `mejora` o `facilita` la resolución de problemas usando algoritmos que trabajamos hasta el momento?
 
@@ -192,7 +105,7 @@ Incluso, si una persona no sabe programar, puede entender la lógica de mi algor
 
 Otro beneficio de usar un TAD, es que puede ser compartido y reutilizado en diferentes programas sin necesidad de redefinir la estructura o las operaciones internas; esto es útil ya que da la posibilidad de usar un TAD **diseñado por otras personas**, como compañeros de curso o descargadas de Internet como si fueran bibliotecas.
 
-![Comparación](https://i.ibb.co/kJSdYq1/tad-user-prog.jpg)
+![tad_user_prog](https://github.com/user-attachments/assets/119f29ef-3559-4510-8902-ca01d3d7c47f)
 
 ## Bibliografia
 
