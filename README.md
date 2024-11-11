@@ -126,18 +126,18 @@ De esta forma el contador reflejaría en todo momento, con un tiempo de acceso d
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/main.c)
 
 #### Funcion existe: 
+Nuestro diseño de `existe` crea una cola auxiliar para almacenar temporalmente los elementos de la cola, mientras los desencola y verifica si coinciden con x. 
+- Si encuentra el valor, asigna la posicion según el valor del iterador.
+- Si no encuentra el elemento, devuelve `-1`.
+
+Luego, restaura la cola a su estado original encolando los elementos desde la cola auxiliar. Al finalizar la funcion, la cola original queda de la misma manera que cuando fue invocada. 
 
 Datos de Entrada:
 - COLA *C: Un puntero a una estructura de cola, que contiene una lista de nodos. Cada nodo tiene un valor entero (DATO) y un puntero al siguiente nodo (sgte).
 - X: Un valor entero que se busca en la cola. Es el dato de entrada que la función debe localizar en los nodos de la cola.
 
-Precondiciones:
-- COLA no nula: El puntero a la cola no debe ser NULL. La cola debe estar correctamente inicializada antes de llamar a la función.
-
 Datos de Salida:
-- La función devuelve un entero
-    - Si el valor x se encuentra en la cola, la función devuelve la posición(empezando desde 1) del nodo en el que se encuentra.
-    - Si el valor x no se encuentra en la cola, la función devuelve -1
+- La función devuelve la posición (entero)
 
 Postcondiciones:
 - Retorno de la posición del valor encontrado:
