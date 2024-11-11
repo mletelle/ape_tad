@@ -1,4 +1,4 @@
-*no borrar hasta miercoles 14* MODIFICAR ENLACES ANTES DE ENTREGAR
+
 # Actividad Práctica Entregable N° 2  
 
 ## Tipo de Datos Abstractos (TAD)
@@ -11,18 +11,20 @@ Aunque los problemas básicos pueden resolverse con estructuras simples como var
 - Estimaciones de tamaño y tiempo de ejecución para sus operaciones.
 - Las funciones asociadas a cada estructura son relativamente independientes del lenguaje o la implementación en particular.
 
+
+## Objetivos
+- Implementar el TAD **TCOLA** a partir de una especificación dada, utilizando las estrategias de **RP** y las estructuras de datos trabajadas en el curso.
+- Resolver un problema **USANDO** el TAD TCOLA.
+- Reflexionar sobre la forma de trabajo que se propone a través del uso de TADs, en comparación a cómo se trabajó hasta este tema.
+
 ## TAD COLA
-El TAD Cola es una estructura de datos tipo FIFO (First In, First Out), donde el primer elemento en entrar es el primero en salir, como en un consultorio médico. Frecuentemente, se utiliza como un almacenamiento temporal que conserva el orden de llegada de los elementos hasta que puedan ser procesados. Al igual que la pila, la cola es un subtipo de lista.
+Una Cola es una estructura de datos tipo FIFO (First In, First Out), donde el primer elemento en entrar es el primero en salir, como en un consultorio médico. Frecuentemente, se utiliza como un almacenamiento temporal que conserva el orden de llegada de los elementos hasta que puedan ser procesados. Al igual que la pila, la cola es un subtipo de lista.
 ```mermaid
 flowchart  TD
 n1["TAD TCOLA"]  -->  n2["tipo exportado COLA"]
 n2  -->  n3["interface"]
 n3  -->  n4["crear"]  &  n5["vacia"]  &  n6["encolar"]  &  n7["desencolar"]  &  n8["verPrimero"]  &  n9["longitud"]  &  n10["copiar"]  &  n11["llevarAlFrente"]
 ```
-## Objetivos
-- Implementar el TAD **TCOLA** a partir de una especificación dada, utilizando las estrategias de **RP** y las estructuras de datos trabajadas en el curso.
-- Resolver un problema **USANDO** el TAD TCOLA.
-- Reflexionar sobre la forma de trabajo que se propone a través del uso de TADs, en comparación a cómo se trabajó hasta este tema.
 
 ## Consignas
 
