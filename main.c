@@ -2,8 +2,45 @@
 #include <stdlib.h>
 #include "tcola.h"
 
+
+//PROTOTIPOS
 /*USANDO el TAD TCOLA, diseña e implementa una función llamada existe que reciba una cola C y un valor entero X,
 y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar -1.*/
+int existe(COLA C, int x);
+/* Si la especificación de la interfaz del TAD TCOLA no cuenta con la funcionalidad longitud
+Diseño de la solucion propuesta, asumiendo el rol de usuario del TAD*/
+int longitud2(COLA *C);
+
+
+//PROGRAMA PRINCIPAL
+int main() {
+  //declarar cola
+  COLA cola;
+  //crear e inicializar cola
+  cola = crear();
+  //encolar un dato
+  int dato;
+  scanf("%d",&dato);
+  encolar(&cola, dato);
+  //ver el primer elemento de la cola sin desencolarlo
+  int primero = verPrimero(cola);
+  //desencolar el primer elemento
+  int desencolado;
+  desencolar(&cola, &desencolado);  
+  //longitud de la cola
+  int len = longitud(cola);
+  // Copiar el contenido de cola1 a cola2
+  COLA cola1 = crear();
+  COLA cola2 = crear();
+  copiar(&cola1, cola2);
+  //llevar un elemento al frente
+  llevarAlFrente(&cola1, 2);//lleva el elemento en la posicion 2 al frente
+  //usar existe para buscar el elemento 2 en la cola
+  int posicion = existe(cola, 2);
+  return 0;
+}
+
+//IMPLEMENTACIONES
 int existe(COLA C, int x){
 /*Usa una cola auxiliar para almacenar temporalmente los elementos de la cola mientras los desencola y verifica si coinciden con x. 
 Si encuentra el valor, asigna la posicion actual del iterador; luego, restaura la cola a su estado original encolando los elementos desde aux.*/
@@ -29,31 +66,23 @@ Si encuentra el valor, asigna la posicion actual del iterador; luego, restaura l
     return posicion;//devuelve la posicion si encontro, o -1 si no
 }
 
-
-
-int main() {
-  //declarar cola
-  COLA cola;
-  //crear e inicializar cola
-  cola = crear();
-  //encolar un dato
-  int dato;
-  scanf("%d",&dato);
-  encolar(&cola, dato);
-  //ver el primer elemento de la cola sin desencolarlo
-  int primero = verPrimero(cola1);
-  //desencolar el primer elemento
-  int desencolado;
-  desencolar(&cola1, &desencolado);  
-  //longitud de la cola
-  int len = longitud(cola1);
-  // Copiar el contenido de cola1 a cola2
-  COLA cola1 = crear();
-  COLA cola2 = crear();
-  copiar(&cola1, cola2);
-  //llevar un elemento al frente
-  llevarAlFrente(&cola1, 2);//lleva el elemento en la posicion 2 al frente
-  //usar existe para buscar el elemento 2 en la cola
-  int posicion = existe(cola, 2);
-  return 0;
+int longitud2(COLA *C) {
+/*Se crea aux para almacenar temporalmente los elementos. Usamos desencolar la cola principal y encolar en aux mientras incrementamos contador.
+Volvemos a mover todos los elementos de aux a C, dejando la cola en su estado original. Retornamos el valor del iterador*/
+    COLA aux = crear();//crea una cola auxiliar
+    int elemento;
+    int contador = 0;//inicializar el contador
+    while (!vacia(*C)) {//mientras la cola no este vacia
+        desencolar(C, &elemento);//desencolar elemento
+        encolar(&aux, elemento); //encolarlo en la cola auxiliar
+        contador++;//incrementar contador
+    }
+    //restaurar la cola original desde la auxiliar
+    while (!vacia(aux)) {
+        desencolar(&aux, &elemento);
+        encolar(C, elemento);
+    }
+    return contador;
 }
+
+
