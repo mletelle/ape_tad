@@ -5,23 +5,30 @@
 /*USANDO el TAD TCOLA, diseña e implementa una función llamada existe que reciba una cola C y un valor entero X,
 y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar -1.*/
 int existe(COLA C, int x){
-/* Avanza sobre la lista incrementando el iterado que determina la posicion del valor buscado x, si se encontro la variable encontrado cambia a verdadero y a retorno se le asigna la posicion donde
-quedo el iterador, si no se encontro el valor x, el valor de retorno nunca cambia y la funcion retorna -1. 
-Para encontrar el valor se recorre la lista desde el inicio, si se encontró termina de buscar.*/
-  int retorno = -1;
-  int encontrado = 0;
-  int i = 1;
-  tNodo *aux = C->primerNodo;
-  while(aux != NULL && encontrado != 1){
-    if(aux->dato==x){
-      encontrado = 1;
-      retorno = i;
+/*Usa una cola auxiliar para almacenar temporalmente los elementos de la cola mientras los desencola y verifica si coinciden con x. 
+Si encuentra el valor, asigna la posicion actual del iterador; luego, restaura la cola a su estado original encolando los elementos desde aux.*/
+    int posicion=-1;//si no existe el elemento
+    int encontrado=0;//variable de estado
+    int i = 1;//iterador, refleja la posicion a retornar en caso de existir
+    int elemento;//almacena el elemento desencolado temporalmente
+    COLA aux = crear();//cola auxiliar para almacenar elementos temporalmente
+
+    while (!vacia(C) && encontrado==0) {//mientras la cola no este vacia y el elemento no haya sido encontrado
+        desencolar(&C, &elemento);//recuperamos el elemento
+        if (elemento == x) {//si el elemento coincide con x
+            encontrado = 1;//para finalizar la iteracion
+            posicion = i;//asignar el valor del iterador a la variable que se retorna
+        }
+        encolar(&aux, elemento);//encolar el elemento en la cola auxiliar para guardarlo temporalmente
+        i++;
     }
-  i++;
-  aux = aux->sgte;
-  }
-  return retorno;
+    while (!vacia(aux)) {//restaurar la cola original desde la auxiliar
+        desencolar(&aux, &elemento);
+        encolar(&C, elemento);
+    }
+    return posicion;//devuelve la posicion si encontro, o -1 si no
 }
+
 
 
 int main() {
