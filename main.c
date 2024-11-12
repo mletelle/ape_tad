@@ -28,7 +28,7 @@ int main() {
   desencolar(&cola, &desencolado);  
   //longitud de la cola
   qElem = longitud(cola);
-  qElem = longitud2(cola);
+  qElem = longitud2(&cola);
   // Copiar el contenido de cola1 a cola2
   COLA cola1 = crear();
   COLA cola2 = crear();
