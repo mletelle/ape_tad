@@ -8,7 +8,8 @@
 y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar -1.*/
 int existe(COLA C, int x);
 /* Si la especificacion de la interfaz del TAD TCOLA no cuenta con la funcionalidad longitud
-Diseño de la solucion propuesta, asumiendo el rol de usuario del TAD*/
+Diseño de la solucion propuesta, asumiendo el rol de usuario del TAD
+Se emplea el nombre longitud2 para evitar problemas de definicion*/
 int longitud2(COLA *C);
 
 
@@ -56,7 +57,7 @@ int main() {
         printf("La longitud de la cola es: %d\n", qElem);
         break;                
       case 5:
-        copiar(&cola1, cola);//copia el contenido de cola a cola1
+        copiar(&cola1, cola);
         printf("Contenido copiado.\n");
         break;
       case 6:
