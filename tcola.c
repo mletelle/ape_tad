@@ -3,27 +3,26 @@
 #include <string.h>
 #include "tcola.h"
 
-//TNodo va a modelar los nodos contenidos en la "lista"
+//TNodo modela los nodos contenidos en la "lista"
 typedef struct tNodo {
 	    int dato;
-	    struct tNodo *sgte;  // Puntero al siguiente nodo
-} tNodo;
+	    struct tNodo *sgte;//puntero al siguiente nodo
+}tNodo;
 
-//TCola va a ser la "locomotora de la lista", el tipo de dato exportado del TAD
+//TCola va a ser el tipo de dato exportado del TAD
 typedef struct tCola {
 //resuelto como el parcial
-	    int qElementos;       // Cantidad de elementos en la cola
-	    tNodo *primerNodo;        // Puntero al primer nodo (frente de la cola)
-	    tNodo *ultimoNodo;        // Puntero al último nodo (final de la cola)
-} tCola;
+	    int qElementos;//cantidad de elementos en la cola
+	    tNodo *primerNodo;//puntero al primer nodo (frente de la cola)
+	    tNodo *ultimoNodo;//puntero al último nodo (final de la cola)
+}tCola;
 
-// Implementacion de 3 funcionalidades provistas por el TAD(y las auxiliares necesarias)
+// Implementacion de funcionalidades provistas por el TAD(y las auxiliares necesarias)
 //Funciones publicas y privadas del TAD
 
 COLA crear() {
 // Crea una cola vacía. Inicializa la estructura de cola con inicio y último apuntando a NULL,
 //y establece qElementos en 0 
-// Deberia asignarle memoria con malloc al puntero que sea crea? No, el puntero es una variable simple
 	COLA colaVacia = (COLA) malloc(sizeof(tCola)); //asignar memoria 
 //inicializar los valores de la cola
 	colaVacia->primerNodo = NULL;
@@ -56,15 +55,15 @@ void encolar(COLA *C, int dato) {
 	tNodo *nuevoNodo;
 	asignar(&nuevoNodo, dato);
 	if(vacia(*C)){
-        	//si la cola esta vacia primerNodo y ultimoNodo apuntan al nuevo nodo
+        //si la cola esta vacia primerNodo y ultimoNodo apuntan al nuevo nodo
         	(*C)->primerNodo = nuevoNodo;
-            (*C)->ultimoNodo = nuevoNodo;
+		(*C)->ultimoNodo = nuevoNodo;
     	}else{
         //si la cola no esta vacia, linkea el ultimo nodo al nuevo y actualiza ultimoNodo
        		(*C)->ultimoNodo->sgte = nuevoNodo;
         	(*C)->ultimoNodo = nuevoNodo;
     	}    
-	(*C)->qElementos++; // Incrementa la cantidad de elementos en la cola
+	(*C)->qElementos++; //incrementa la cantidad de elementos en la cola
 }
 
 /* Desencola el primer elemento de la cola C y lo retorna en el parámetro desencolado.
@@ -76,25 +75,25 @@ void desencolar(COLA *C, int* desencolado) {
         *desencolado = temp->dato;//el dato del primer nodo se asigna a desencolado
         (*C)->primerNodo = (*C)->primerNodo->sgte;//actualiza el primer nodo a su siguiente nodo
 	    
-	    if ((*C)->primerNodo == NULL) { // Si después de desencolar la cola queda vacía, se actualiza el último nodo a NULL
+	    if ((*C)->primerNodo == NULL) { //si despues de desencolar la cola queda vacía, se actualiza el ultimo nodo a NULL
             (*C)->ultimoNodo = NULL;
         }
-        free(temp); // Libera la memoria del nodo desencolado
-        (*C)->qElementos--; // Disminuye la cantidad de elementos en la cola
+        free(temp);//libera la memoria del nodo desencolado
+        (*C)->qElementos--;//disminuye la cantidad de elementos en la cola
     }
 }
 
 /* Recupera el valor del dato que está al frente de la cola, sin desencolarlo.
 Pre-condición: cola no vacía*/
 int verPrimero(COLA C) {
-	int retorno = -1; //esto nunca debe retornarse según la pre-condicion
+	int retorno = -1; //
 	if ((*C).primerNodo != NULL) {
 	retorno = (*C).primerNodo->dato;// asigna el dato del primer nodo al retorno
 	}
 	return retorno;
 }
 
-/* Retorna recursivamente la cantidad de elementos de la cola C. */
+/* Retorna la cantidad de elementos de la cola C. */
 int longitud(COLA C) {//recibe el Tipo Exportado
     return (*C).qElementos;//retorna lo almacenado en el campo qelementos
 }
