@@ -246,4 +246,4 @@ Desde nuestra experiencia al estudiar y luego implementar esta APE TAD, encontra
 - Joyanes Aguilar. (2001). Fundamentos de Programación: Algoritmos, estructura de datos y objetos (4.a ed.). McGraw Hill. Capítulos 15-18.
 - Knuth, D. E. (1981). The Art of Computer Programming. Addison-Wesley.
 - Sznajdleder, P. A. (2021). Algorítmos a fondo con aplicaciones en C y Java. Capítulo 9.
-
+-Universidad de la República (UDELAR). (2009). Clase 8 - Tecnólogo Informático - Estructura de Datos y Algoritmos. Recuperado de https://www.fing.edu.uy/tecnoinf/mvd/cursos/eda/material/teo/anterior/7-EDA-teo.pdf.
