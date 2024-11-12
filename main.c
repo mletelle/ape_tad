@@ -14,29 +14,31 @@ int longitud2(COLA *C);
 
 //PROGRAMA PRINCIPAL
 int main() {
+  int dato, primero,desencolado,qElem,pos,elem,posicion;
   //declarar cola
   COLA cola;
   //crear e inicializar cola
   cola = crear();
   //encolar un dato
-  int dato;
   scanf("%d",&dato);
   encolar(&cola, dato);
   //ver el primer elemento de la cola sin desencolarlo
-  int primero = verPrimero(cola);
+  primero = verPrimero(cola);
   //desencolar el primer elemento
-  int desencolado;
   desencolar(&cola, &desencolado);  
   //longitud de la cola
-  int len = longitud(cola);
+  qElem = longitud(cola);
+  qElem = longitud2(cola);
   // Copiar el contenido de cola1 a cola2
   COLA cola1 = crear();
   COLA cola2 = crear();
   copiar(&cola1, cola2);
   //llevar un elemento al frente
-  llevarAlFrente(&cola1, 2);//lleva el elemento en la posicion 2 al frente
-  //usar existe para buscar el elemento 2 en la cola
-  int posicion = existe(cola, 2);
+  scanf("%d",&pos);
+  llevarAlFrente(&cola1, pos);//lleva el elemento en la posicion pos al frente
+  //usar existe para buscar el elemento elem en la cola
+  scanf("%d",&elem);
+  posicion = existe(cola, elem);
   return 0;
 }
 
@@ -49,7 +51,6 @@ Si encuentra el valor, asigna la posicion actual del iterador; luego, restaura l
     int i = 1;//iterador, refleja la posicion a retornar en caso de existir
     int elemento;//almacena el elemento desencolado temporalmente
     COLA aux = crear();//cola auxiliar para almacenar elementos temporalmente
-
     while (!vacia(C) && encontrado==0) {//mientras la cola no este vacia y el elemento no haya sido encontrado
         desencolar(&C, &elemento);//recuperamos el elemento
         if (elemento == x) {//si el elemento coincide con x
