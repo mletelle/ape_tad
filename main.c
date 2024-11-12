@@ -7,40 +7,90 @@
 /*USANDO el TAD TCOLA, diseña e implementa una función llamada existe que reciba una cola C y un valor entero X,
 y retorne la posición en la que se encuentra el elemento X. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar -1.*/
 int existe(COLA C, int x);
-/* Si la especificación de la interfaz del TAD TCOLA no cuenta con la funcionalidad longitud
+/* Si la especificacion de la interfaz del TAD TCOLA no cuenta con la funcionalidad longitud
 Diseño de la solucion propuesta, asumiendo el rol de usuario del TAD*/
 int longitud2(COLA *C);
 
 
 //PROGRAMA PRINCIPAL
 int main() {
-  int dato, primero,desencolado,qElem,pos,elem,posicion;
-  //declarar cola
-  COLA cola;
-  //crear e inicializar cola
-  cola = crear();
-  //encolar un dato
-  scanf("%d",&dato);
-  encolar(&cola, dato);
-  //ver el primer elemento de la cola sin desencolarlo
-  primero = verPrimero(cola);
-  //desencolar el primer elemento
-  desencolar(&cola, &desencolado);  
-  //longitud de la cola
-  qElem = longitud(cola);
-  qElem = longitud2(&cola);
-  // Copiar el contenido de cola1 a cola2
-  COLA cola1 = crear();
-  COLA cola2 = crear();
-  copiar(&cola1, cola2);
-  //llevar un elemento al frente
-  scanf("%d",&pos);
-  llevarAlFrente(&cola1, pos);//lleva el elemento en la posicion pos al frente
-  //usar existe para buscar el elemento elem en la cola
-  scanf("%d",&elem);
-  posicion = existe(cola, elem);
+  int opcion, dato, primero, desencolado, qElem, elem, posicion;
+  COLA cola = crear();//crear e inicializar la cola
+  COLA cola1 = crear();//crear otra cola para usar en la funcion de copia
+  do {
+    printf("\nMENU\n");
+    printf("1. Encolar un dato que se lee desde teclado\n");
+    printf("2. Ver primer elemento en la cola\n");
+    printf("3. Desencolar\n");
+    printf("4. Ver longitud de la cola\n");
+    printf("5. Copiar cola\n");
+    printf("6. Llevar al frente un elemento en posicion X\n");
+    printf("7. Buscar elemento en la cola (existe)\n");
+    printf("8. Finalizar\n");
+    printf("Seleccione una opcion: ");
+    scanf("%d", &opcion);
+    switch (opcion) {
+      case 1:
+        printf("Ingrese el dato a encolar: ");
+        scanf("%d", &dato);
+        encolar(&cola, dato);
+        break;
+      case 2:
+        if (!vacia(cola)) {
+          primero = verPrimero(cola);
+          printf("El primer elemento es: %d\n", primero);
+        } else {
+          printf("La cola esta vacia.\n");
+        }
+        break;
+      case 3:
+        if (!vacia(cola)) {
+          desencolar(&cola, &desencolado);
+          printf("Elemento desencolado: %d\n", desencolado);
+        } else {
+          printf("La cola esta vacia.\n");
+        }
+        break;
+      case 4:
+        qElem = longitud(cola);
+        printf("La longitud de la cola es: %d\n", qElem);
+        break;                
+      case 5:
+        copiar(&cola1, cola);//copia el contenido de cola a cola1
+        printf("Contenido copiado.\n");
+        break;
+      case 6:
+        printf("Ingrese la posicion del elemento a llevar primero: ");
+        scanf("%d", &posicion);
+        if (posicion > 0 && posicion <= longitud(cola)) {//verifica una posicion valida
+          llevarAlFrente(&cola, posicion);
+          printf("Elemento llevado al frente.\n");
+        } else {
+          qElem = longitud(cola);
+          printf("Posicion no valida, intente con un valor entre 1 y %d.\n",qElem);
+        }
+        break;
+      case 7:
+        printf("Ingrese un elemento a buscar: ");
+        scanf("%d", &elem);
+        posicion = existe(cola, elem);
+        if (posicion != -1) {
+          printf("Elemento %d encontrado en la posicion: %d\n", elem, posicion);
+        } else {
+          printf("Elemento no encontrado en la cola.\n");
+        }
+        break;
+      case 8:
+        printf("Gracias por utilizar nuestro programa ;) \n");
+        break;
+      default:
+        printf("Opcion no valida.\n");
+        break;
+      }
+    } while (opcion != 8);
   return 0;
 }
+
 
 //IMPLEMENTACIONES
 int existe(COLA C, int x){
