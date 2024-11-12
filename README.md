@@ -134,7 +134,7 @@ La ventaja de este método es que permite contar la cantidad de elementos de una
 
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/main.c)
 
-2. Otra forma de calcular la longitud sin utilizar la función específica del TAD es usar una variable contadora en el programa principal. Con esta estrategia:
+2. Otra forma de calcular la longitud sin utilizar la función específica del TAD es usar una variable contadora en el programa principal. De la siguiente manera:
 - Iniciamos una variable contadora de elementos en el programa principal en 0. 
 - Incrementamos el contador con cada operación de encolar. 
 - Decrementamos el contador con cada operación de desencolar.
@@ -147,7 +147,7 @@ De este modo, el contador refleja la cantidad total de elementos de la cola en t
 ![ape2-existe](https://github.com/user-attachments/assets/382918d7-010f-4677-aa10-e401cd2c9565)
 
 #### Funcion existe: 
-Nuestro diseño de `existe` crea una cola auxiliar para almacenar temporalmente los elementos de la cola, mientras los desencola y verifica si coinciden con x. 
+Nuestro diseño de `existe` crea una cola auxiliar para almacenar temporalmente los elementos de la cola principal, mientras los desencola, incrementa un iterador y verifica si coinciden con x. 
 - Si encuentra el valor, asigna la posicion según el valor del iterador.
 - Si no encuentra el elemento, devuelve `-1`.
 
@@ -169,17 +169,20 @@ Postcondiciones:
 
 ### e) ¿En qué aspectos la forma de trabajo con TADs `mejora` o `facilita` la resolución de problemas usando algoritmos que trabajamos hasta el momento?
 
-Ventajas:
+Desde nuestra experiencia al estudiar y luego implementar esta APE TAD, encontramos las siguientes ventajas y desventajas:
+#### Ventajas:
 
-- El uso de TAD es más **flexible** a la hora de plantear y abordar un problema, ya que **abstrae** al usuario de los detalles de implementación o de cómo resolver un problema específico. En lugar de enfocarse en cómo se va a hacer, el TAD se centra en lo que se quiere lograr.
 - El usuario no tiene que saber/aprender **CÓMO** funciona, sino **QUÉ** hace, ya que los TAD **ocultan** los detalles de implementación y el usuario interactúa sólo mediante una **interfaz**, a través de un conjunto de operaciones definidas, sin necesidad de conocer la estructura interna.
-- Ya que los problemas reales implican tener que modelar situaciones más complejas que datos nativos del lenguaje, los TAD proporcionan un modelo abstracto que permite manipular los datos de manera más sencilla y eficiente. Ahorrando tiempo al usuario de nuestra `COLA`  ya que de esta manera, sólo deberá `crear` la cola y suministrar un dato para `encolar`, y no debe diseñar la estructura y cada una de las funciones desde 0.
-Incluso, si una persona no sabe programar, puede entender la lógica de mi algoritmo que emplea TAD, ya que este utiliza palabras descriptivas (como `vacía` o `encolar`), que reflejan claramente las acciones que realiza el algoritmo.
+- Ya que los problemas reales implican tener que modelar situaciones más complejas que datos nativos del lenguaje, los TAD proporcionan un modelo abstracto que permite manipular los datos de manera más sencilla y eficiente. Ahorrandonos tiempo para manejar nuestra `COLA`, ya que de esta manera, sólo debemos `crear` la cola y suministrar un dato para `encolar`, y no debe diseñar la estructura y cada una de las funciones desde 0.
+- Incluso, si una persona no sabe programar, puede entender la lógica de mi algoritmo que emplea TAD, ya que  debe estar bien documentado y utilizar palabras descriptivas (como `verPrimero` o `encolar`), que reflejan claramente las acciones que realiza el algoritmo.
 - Otro beneficio de usar un TAD, es que puede ser compartido y reutilizado en diferentes programas sin necesidad de redefinir la estructura o las operaciones internas; esto es útil ya que da la posibilidad de usar un TAD **diseñado por otras personas**, como compañeros de curso o descargadas de Internet como si fueran bibliotecas.
-Desventajas:
--Complicado de programar chiiiieeeeeeeee
 
-![tad_user_prog](https://github.com/user-attachments/assets/119f29ef-3559-4510-8902-ca01d3d7c47f)
+#### Desventajas:
+- Debido al encapsulamiento y dado que sólo podemos manipular la cola mediante las operaciones de la interfaz, encontramos dificultades a la hora de pensar como resolver las consignas dadas (por ejemplo, al implementar `existe`). Pensamos en primera instancia en recorrer la lista, pero no es posible dado que, desde el `main.c` somos usuarios del TAD y no conocemos como está este implementado. Al final optamos por utilizar la funciones de la interfaz `encolar` y `desencolar` para lograr solucionar el problema.
+- Otra complicación que encontramos fue tener que usar tres archivos, lo cual no fue soportado nativamente por el programa Zinjai, teniendo que utilizar otras alternativas como [onlinegdb](https://www.onlinegdb.com/online_c_compiler#).
+- Un problema que planteamos como grupo va relacionado con uno de los beneficios, si podemos usar el TAD de otra persona, éste tiene que estar bien documentado y explicado. Es posible no entender la lógica de cómo usarlo (sin considerar la implementación), esto depende de que el programador del TAD haya hecho una clara interfaz y una solida documentación.
+
+	![tad_user_prog](https://github.com/user-attachments/assets/119f29ef-3559-4510-8902-ca01d3d7c47f)
 
 ## Bibliografia
 
