@@ -65,10 +65,10 @@ Esta implementación puede entenderse más fácilmente con la siguiente represen
 
 #### Función crear():
 Esta función crea una cola vacía, inicializando los punteros primerNodo y ultimoNodo a NULL y estableciendo la cantidad de elementos qElementos en 0.
-- Datos de entrada: No recibe parámetros.
+- Datos de entrada: Ninguno.
 - Precondición: Ninguna.
 - Datos de salida: Una cola vacía.
-- Postcondición: La cola queda generada con primerNodo = NULL, ultimoNodo = NULL y qElementos = 0.
+- Postcondición: La cola es inicializada.
 
 ![ape2-crear](https://github.com/user-attachments/assets/1f5974b8-2230-40a3-a3b1-7c06bf28bf9d)
 
@@ -76,41 +76,36 @@ Esta función crea una cola vacía, inicializando los punteros primerNodo y ulti
 Verifica si la cola ha sido creada o si está vacía. Retorna 1 si primerNodo apunta a NULL (indicando una cola vacía o aún no creada), y 0 si contiene elementos.
 - Datos de entrada: Una cola C.
 - Precondición: Ninguna.
-- Datos de salida: cVacia(entero).
-- Postcondición: Retorna 1 si la cola está vacía o aún no ha sido creada, 0 si tiene elementos.
+- Datos de salida: cVacia de tipo entero.
+- Postcondición: Retorna 1 si la cola está vacía, 0 si no lo está.
 
 ![ape2-vacia](https://github.com/user-attachments/assets/fb64e213-5ab4-4f9f-a37c-5833706b4da9)
 
 #### Procedimiento encolar(COLA *C, int dato):
-Agrega un nuevo nodo al final de la cola, almacenando en él el valor dato.
-- Datos de entrada: Una cola C y un entero dato que representa el valor a encolar.
-- Precondición: La cola debe haber sido inicializada.
-- Datos de salida: La cola C modificada con el nuevo elemento al final.
-- Postcondición:
-	- Si la cola estaba vacía, tanto primerNodo como ultimoNodo apuntarán al nuevo nodo.
-	- Si la cola no estaba vacía, ultimoNodo se actualizará para apuntar al nuevo nodo.
-	- El contador qElementos aumenta en 1, reflejando el nuevo total de elementos.
+Agrega un nuevo nodo al final de la cola, almacenando en él el valor dato.Si la cola estaba vacía, tanto primerNodo como ultimoNodo apuntarán al nuevo nodo. 
+Si la cola no estaba vacía, ultimoNodo se actualizará para apuntar al nuevo nodo.
+- Datos de entrada: cola C y dato de tipo entero.
+- Precondición:Ninguna.
+- Datos de salida: cola C modificada.
+- Postcondición: El contador qElementos aumenta en 1.
 
 ![ape2-encolar](https://github.com/user-attachments/assets/26c2d15b-7dae-49ff-9b7d-fcf00fb91e5c)
 
 #### Procedimiento desencolar(COLA *C, int* desencolado):
 Elimina el primer nodo de la cola y almacena su valor en la variable apuntada por desencolado.
-- Datos de entrada: Una cola C y un puntero a desencolado para almacenar el valor removido.
-- Precondición: La cola no debe estar vacía, es decir, debe haber un elemento para desencolar.
-- Datos de salida: El valor desencolado es almacenado en *desencolado.
-- Postcondición:
-	- El primer nodo es eliminado de la cola.
-	- Si había más de un elemento, primerNodo se actualiza para apuntar al siguiente nodo.
-	- Si este era el único nodo, primerNodo y ultimoNodo se asignan a NULL, indicando una cola vacía.
-	- El contador qElementos disminuye en 1.
+El primer nodo es eliminado de la cola. Si había más de un elemento, primerNodo se actualiza para apuntar al siguiente nodo.Si este era el único nodo, primerNodo y ultimoNodo se asignan a NULL, indicando una cola vacía.
+- Datos de entrada:cola C y *desencolado de tipo entero
+- Precondición: La cola no debe estar vacía.
+- Datos de salida: *desencolado de tipo entero
+- Postcondición: qElementos disminuye en 1.
 
 ![ape2-desencolar](https://github.com/user-attachments/assets/d25d7d30-ef13-4ee4-8a82-fe9a520eace4)
 
 #### Procedimiento verPrimero
 Retorna el dato del primer elemento de la cola sin modificarla.
-- Datos de entrada: Una cola C.
+- Datos de entrada: cola C.
 - Precondición: La cola no debe estar vacía.
-- Datos de salida: retorno (entero).
+- Datos de salida: retorno de tipo entero.
 - Postcondición: Retorna el valor almacenado en el primer nodo de la cola sin modificar la estructura de la misma.
 
 ![ape2-verPrimero](https://github.com/user-attachments/assets/edf129a1-bd11-4159-81fe-3965acf9d980)
@@ -118,8 +113,8 @@ Retorna el dato del primer elemento de la cola sin modificarla.
 #### Función longitud
 Retorna la cantidad de elementos en la cola, usando qElementos que lleva un contador de los nodos en la cola.
 - Datos de entrada: Una cola C.
-- Precondición:
-- Datos de salida: qElementos(entero).
+- Precondición: Ninguna.
+- Datos de salida: qElementos de tipo entero.
 - Postcondición: Retorna el valor del contador qElementos que indica la cantidad de elementos en la cola.
 
 ![ape2-longitud](https://github.com/user-attachments/assets/973d8d33-50ec-4f6d-b67f-4bba24a99dbd)
@@ -127,18 +122,18 @@ Retorna la cantidad de elementos en la cola, usando qElementos que lleva un cont
 
 #### Procedimiento copiar
 Copia los elementos de la cola C2 a la cola C1, manteniendo el orden de los elementos.
-- Datos de entrada: Dos punteros a colas, C1 y C2. C1 es la cola destino y C2 es la cola origen.
-- Precondición: Ambas colas deben estar correctamente inicializadas.
-- Datos de salida: Retorna una cola
-- Postcondición: La cola C1 contiene los mismos elementos que la cola C2 en el mismo orden, sin modificar el estado de C2.
+- Datos de entrada: *C1 y C2 de tipo cola
+- Precondición: Ninguna.
+- Datos de salida:*C1 de tipo cola
+- Postcondición: C1 es una copia de C2.
 
 ![ape2-copiar](https://github.com/user-attachments/assets/c9395c11-a1e9-4ab8-a9af-d837b9a0927a)
 
 #### Procedimiento: llevarAlFrente
 Mueve el nodo en la posición posX al frente de la cola C1, dejando los otros nodos en el mismo orden.
-- Datos de entrada: Un puntero a cola y posX (entero).
+- Datos de entrada:*C1 de tipo cola, posX de tipo entero
 - Precondición: posX debe ser una posición válida en la cola
-- Datos de salida: cola actualizada.
+- Datos de salida: *C1 de tipo cola
 - Postcondición: El nodo en la posición posX es movido al frente de la cola.
 
 ![ape2-llevarAlFrente](https://github.com/user-attachments/assets/dafbfcfd-350a-4766-ac0d-da517d1fb8c7)
