@@ -125,7 +125,7 @@ Copia los elementos de la cola C2 a la cola C1, manteniendo el orden de los elem
 - Datos de entrada: *C1 y C2 de tipo cola
 - Precondición: Ninguna.
 - Datos de salida:*C1 de tipo cola
-- Postcondición: C1 es una copia de C2.
+- Postcondición: la cola C1 contendrá los mismos elementos que la cola C2, y su longitud será igual a la de C2. Si C1 tenía elementos antes de la operación, estos serán reemplazados por los de C2, dejando a C1 con una copia exacta de C2.
 
 ![ape2-copiar](https://github.com/user-attachments/assets/c9395c11-a1e9-4ab8-a9af-d837b9a0927a)
 
