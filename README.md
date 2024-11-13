@@ -20,7 +20,8 @@ En el presente trabajo, asumimos el rol de las dos partes, implementándolo y ut
 Una Cola es una estructura de datos tipo FIFO (First In, First Out), donde el primer elemento en entrar es el primero en salir, como en un consultorio médico. Frecuentemente, se utiliza como un almacenamiento temporal que conserva el orden de llegada de los elementos hasta que puedan ser procesados. Al igual que la pila, la cola es un subtipo de lista.
 
 Nuestro TAD posee las siguientes operaciones según la definicion de su interfaz:
-![ape2-tad_cola](https://github.com/user-attachments/assets/e8a6edb5-9650-49a1-82d8-ce5178f9ddee)
+![ape2-tad_cola drawio](https://github.com/user-attachments/assets/c610e678-c357-4d8e-b280-e4541872dbdd)
+
 
 ## Consignas
 
@@ -58,30 +59,33 @@ De este modo obtenemos los siguientes tiempos de ejecución:
 El tipo `tCola` es exportado en el archivo de cabecera como `typedef struct tCola *COLA`, permitiendo al usuario trabajar este tipo de dato exportado  `COLA` sin acceder a su estructura interna.
 
 Esta implementación puede entenderse más fácilmente con la siguiente representación gráfica:
-![ape2-tcola](https://github.com/user-attachments/assets/5a9200b3-0d2e-487a-8fef-42ff453a3a46)
+![ape2-tcola drawio](https://github.com/user-attachments/assets/d3d06c77-eda5-4af7-9861-5c79ce5e341b)
+
 
 ### b) Se pide que implementes, usando la estructura de datos propuesta en el inciso a), al menos 3 de las funcionalidades provistas por el TAD.
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
 
-#### Función crear():
+#### Función crear:
 Esta función crea una cola vacía, inicializando los punteros primerNodo y ultimoNodo a NULL y estableciendo la cantidad de elementos qElementos en 0.
 - Datos de entrada: Ninguno.
 - Precondición: Ninguna.
 - Datos de salida: Una cola vacía.
 - Postcondición: La cola es inicializada.
 
-![ape2-crear](https://github.com/user-attachments/assets/1f5974b8-2230-40a3-a3b1-7c06bf28bf9d)
+![ape2-crear drawio](https://github.com/user-attachments/assets/05d45a8d-079b-4562-92ad-021d36d46d98)
 
-#### Función vacia(COLA C):
+
+#### Función vacia:
 Verifica si la cola ha sido creada o si está vacía. Retorna 1 si primerNodo apunta a NULL (indicando una cola vacía o aún no creada), y 0 si contiene elementos.
 - Datos de entrada: Una cola C.
 - Precondición: Ninguna.
 - Datos de salida: cVacia de tipo entero.
 - Postcondición: Retorna 1 si la cola está vacía, 0 si no lo está.
 
-![ape2-vacia](https://github.com/user-attachments/assets/fb64e213-5ab4-4f9f-a37c-5833706b4da9)
+![ape2-vacia drawio](https://github.com/user-attachments/assets/ae15025f-1f52-459f-b81c-ee253a1b487d)
 
-#### Procedimiento encolar(COLA *C, int dato):
+
+#### Procedimiento encolar:
 Agrega un nuevo nodo al final de la cola, almacenando en él el valor dato.Si la cola estaba vacía, tanto primerNodo como ultimoNodo apuntarán al nuevo nodo. 
 Si la cola no estaba vacía, ultimoNodo se actualizará para apuntar al nuevo nodo.
 - Datos de entrada: cola C y dato de tipo entero.
@@ -89,9 +93,10 @@ Si la cola no estaba vacía, ultimoNodo se actualizará para apuntar al nuevo no
 - Datos de salida: cola C modificada.
 - Postcondición: El contador qElementos aumenta en 1.
 
-![ape2-encolar](https://github.com/user-attachments/assets/26c2d15b-7dae-49ff-9b7d-fcf00fb91e5c)
+![ape2-encolar drawio](https://github.com/user-attachments/assets/4ce2615c-6f43-4732-8a90-cdf4126dbec6)
 
-#### Procedimiento desencolar(COLA *C, int* desencolado):
+
+#### Procedimiento desencolar:
 Elimina el primer nodo de la cola y almacena su valor en la variable apuntada por desencolado.
 El primer nodo es eliminado de la cola. Si había más de un elemento, primerNodo se actualiza para apuntar al siguiente nodo.Si este era el único nodo, primerNodo y ultimoNodo se asignan a NULL, indicando una cola vacía.
 - Datos de entrada:cola C y *desencolado de tipo entero
@@ -99,7 +104,8 @@ El primer nodo es eliminado de la cola. Si había más de un elemento, primerNod
 - Datos de salida: *desencolado de tipo entero
 - Postcondición: qElementos disminuye en 1.
 
-![ape2-desencolar](https://github.com/user-attachments/assets/d25d7d30-ef13-4ee4-8a82-fe9a520eace4)
+![ape2-desencolar drawio](https://github.com/user-attachments/assets/8145f7b8-c95b-4779-933d-3c8d6b4ed1a9)
+
 
 #### Procedimiento verPrimero
 Retorna el dato del primer elemento de la cola sin modificarla.
@@ -108,7 +114,8 @@ Retorna el dato del primer elemento de la cola sin modificarla.
 - Datos de salida: retorno de tipo entero.
 - Postcondición: Retorna el valor almacenado en el primer nodo de la cola sin modificar la estructura de la misma.
 
-![ape2-verPrimero](https://github.com/user-attachments/assets/edf129a1-bd11-4159-81fe-3965acf9d980)
+![ape2-verPrimero drawio](https://github.com/user-attachments/assets/acd644ff-cabe-4837-b698-d84dbca3d394)
+
 
 #### Función longitud
 Retorna la cantidad de elementos en la cola, usando qElementos que lleva un contador de los nodos en la cola.
@@ -117,7 +124,7 @@ Retorna la cantidad de elementos en la cola, usando qElementos que lleva un cont
 - Datos de salida: qElementos de tipo entero.
 - Postcondición: Retorna el valor del contador qElementos que indica la cantidad de elementos en la cola.
 
-![ape2-longitud](https://github.com/user-attachments/assets/973d8d33-50ec-4f6d-b67f-4bba24a99dbd)
+![ape2-longitud drawio](https://github.com/user-attachments/assets/09addef6-96b8-428d-a7b6-4e2751a09e12)
 
 
 #### Procedimiento copiar
@@ -125,9 +132,9 @@ Copia los elementos de la cola C2 a la cola C1, manteniendo el orden de los elem
 - Datos de entrada: *C1 y C2 de tipo cola
 - Precondición: Ninguna.
 - Datos de salida:*C1 de tipo cola
-- Postcondición: la cola C1 contendrá los mismos elementos que la cola C2, y su longitud será igual a la de C2. Si C1 tenía elementos antes de la operación, estos serán reemplazados por los de C2, dejando a C1 con una copia exacta de C2.
+- Postcondición: C1=C2
 
-![ape2-copiar](https://github.com/user-attachments/assets/c9395c11-a1e9-4ab8-a9af-d837b9a0927a)
+![ape2-copiar drawio](https://github.com/user-attachments/assets/052af17d-c108-486f-9501-5e5d02684dd2)
 
 #### Procedimiento: llevarAlFrente
 Mueve el nodo en la posición posX al frente de la cola C1, dejando los otros nodos en el mismo orden.
@@ -136,7 +143,8 @@ Mueve el nodo en la posición posX al frente de la cola C1, dejando los otros no
 - Datos de salida: *C1 de tipo cola
 - Postcondición: El nodo en la posición posX es movido al frente de la cola.
 
-![ape2-llevarAlFrente](https://github.com/user-attachments/assets/dafbfcfd-350a-4766-ac0d-da517d1fb8c7)
+![ape2-llevarAlFrente drawio](https://github.com/user-attachments/assets/0e43d63e-c0ea-4c0f-b7b9-4ca4525255fd)
+
 
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/tcola.c)
 
@@ -182,8 +190,7 @@ De este modo, el contador refleja la cantidad total de elementos de la cola en t
 
 #### d) **USANDO** el `TAD TCOLA`, diseña e implementa una función llamada `existe` que reciba una cola `C` y un valor entero `X`, y retorne la posición en la que se encuentra el elemento `X`. Ten en cuenta que el valor podría no existir, en cuyo caso la función debe retornar `-1`.
 
-
-![ape2-existe](https://github.com/user-attachments/assets/382918d7-010f-4677-aa10-e401cd2c9565)
+![ape2-existe drawio](https://github.com/user-attachments/assets/4bd83309-6f4e-43be-aa6e-b89358a1c456)
 
 #### Funcion existe: 
 Nuestro diseño de `existe` emplea una lógica simila a la utilizada en el punto anterior: 
@@ -214,8 +221,8 @@ Datos de Salida:
 - La función devuelve la posición (entero)
   
 Postcondiciones:
-    - Si el valor X se encuentra en uno de los nodos de la cola, la función retorna el número de la posición de dicho valor. `posición`>0
-    - Si el valor X no se encuentra en la cola, la función retorna -1.
+- Si el valor X se encuentra en uno de los nodos de la cola, la función retorna el número de la posición de dicho valor. `posición`>0
+- Si el valor X no se encuentra en la cola, la función retorna -1.
 
 
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/main.c)
@@ -229,10 +236,10 @@ Desde nuestra experiencia al estudiar y luego implementar esta APE TAD, encontra
 - Encontramos que son útiles para problemas de situaciones reales ya que pueden modelar situaciones más complejas que datos nativos del lenguaje.
 - Si ya existe un TAD implementado, nos ahorra tiempo para manejar nuestra `COLA`, ya que de esta manera, sólo debemos `crear` la cola y suministrar un dato para `encolar`, y no debe diseñar desde 0 la estructura y cada una de las funciones.
 - Si una persona no sabe programar, puede entender la lógica de mi algoritmo que emplea TAD, ya que reflejan claramente las acciones que realiza (como `verPrimero` o `encolar`), pero debe estar bien documentado y utilizar palabras descriptivas.
-- Otro beneficio de usar un TAD, es que se puede usar un TAD **diseñado por otras personas**, como compañeros de curso o descargadas de Internet similar a si fueran bibliotecas.
+- Otro beneficio es que se puede usar un TAD **diseñado por otras personas**, como compañeros de curso o descargadas de Internet similar a si fueran bibliotecas.
 
 #### Desventajas:
-- El uso de TADs presenta un mayor nivel de complejidad en el aprendizaje, ya que requiere dominar no solo los conceptos básicos de programación como punteros, listas y pasaje de parámetros, sino también entender la abstracción detrás de los TADs
+- El uso de TADs presenta un mayor nivel de **complejidad en el aprendizaje**, ya que requiere dominar no solo los conceptos básicos de programación como punteros, listas y pasaje de parámetros, sino también saber combinar esto con los TADs.
 - Debido al encapsulamiento y dado que sólo podemos manipular la cola mediante las operaciones de la interfaz, encontramos dificultades a la hora de pensar como resolver las consignas dadas (por ejemplo, al implementar `existe`). Pensamos en primera instancia en recorrer la lista, pero no es posible dado que, desde el `main.c` somos usuarios del TAD y no conocemos como está este implementado. Al final optamos por utilizar la funciones de la interfaz `encolar` y `desencolar` para lograr solucionar el problema. 
 - Otra complicación que encontramos fue tener que usar tres archivos, lo cual no fue soportado nativamente por el programa Zinjai, teniendo que utilizar otras alternativas como [onlinegdb](https://www.onlinegdb.com/online_c_compiler#).
 - Un problema que planteamos como grupo va relacionado con uno de los beneficios, si podemos usar el TAD de otra persona, éste tiene que estar bien documentado y explicado. Es posible no entender la lógica de quien lo programó (sin saber la implementación), esto depende de que el programador del TAD haya hecho una clara interfaz y una solida documentación.
