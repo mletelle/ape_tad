@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "tcola.h"
 
 //TNodo modela los nodos contenidos en la "lista"
