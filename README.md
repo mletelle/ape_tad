@@ -244,6 +244,35 @@ Desde nuestra experiencia al estudiar y luego implementar esta APE TAD, encontra
 - Otra complicación que encontramos fue tener que usar tres archivos, lo cual no fue soportado nativamente por el programa Zinjai, teniendo que utilizar otras alternativas como [onlinegdb](https://www.onlinegdb.com/online_c_compiler#).
 - Un problema que planteamos como grupo va relacionado con uno de los beneficios, si podemos usar el TAD de otra persona, éste tiene que estar bien documentado y explicado. Es posible no entender la lógica de quien lo programó (sin saber la implementación), esto depende de que el programador del TAD haya hecho una clara interfaz y una solida documentación.
 
+### Uso y funcionamiento:
+Las funciones implementadas pueden ser observadas en la siguiente imagen del programa que utiliza los demas archivos del repositorio:
+
+![image](https://github.com/user-attachments/assets/5bfb1102-36d6-406a-b75f-f4589e2e058e)
+
+Habiendo encolado 6 elementos (1,2,3,4,5,6) se observa que devuelve el valor correcto:
+
+![image](https://github.com/user-attachments/assets/428f0e6b-6674-4bee-90bd-3c401ce110ae)
+
+
+Se consulta por el valor del primer elemento, y devuelve el resultado esperado:
+
+![image](https://github.com/user-attachments/assets/78c001e6-1c34-44ff-aad0-2d42346eca81)
+
+
+Se consulta si el elemento 3 existe en la cola y muestra el resultado esperado:
+
+![image](https://github.com/user-attachments/assets/70959f90-19c7-452a-a13b-092ffbf22fc6)
+
+
+Se desencola el primer elemento:
+
+![image](https://github.com/user-attachments/assets/0ae9da95-500c-4887-ac85-e1cf959ac359)
+
+
+Si se inserta una opcion no valida, el programa lo indica:
+
+![image](https://github.com/user-attachments/assets/2e3ba573-84a6-48f1-b5b1-0dd88e1444c6)
+
 
 ## Bibliografia
 
