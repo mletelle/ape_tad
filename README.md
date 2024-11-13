@@ -214,9 +214,9 @@ Datos de Salida:
 - La función devuelve la posición (entero)
   
 Postcondiciones:
-
     - Si el valor X se encuentra en uno de los nodos de la cola, la función retorna el número de la posición de dicho valor. `posición`>0
     - Si el valor X no se encuentra en la cola, la función retorna -1.
+
 
 > Obtenible desde [el repositorio de GitHub](https://github.com/mletelle/ape_tad/blob/main/main.c)
 
