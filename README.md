@@ -205,9 +205,14 @@ Luego, restaura la cola a su estado original encolando los elementos desde la co
 
 Datos de Entrada:
 - COLA *C: Un puntero a una estructura de cola.
-- X: entero. 
+- X: entero.
+  
+Precondiciones:
+- Ninguna
+  
 Datos de Salida:
 - La función devuelve la posición (entero)
+  
 Postcondiciones:
     - Si el valor X se encuentra en uno de los nodos de la cola, la función retorna el número de la posición de dicho valor. `posición`>0
     - Si el valor X no se encuentra en la cola, la función retorna -1.
